@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../gen/assets.gen.dart';
 import '../../theme/app_colors.dart';
+import '../home/ar_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -73,10 +76,23 @@ class SplashScreen extends StatelessWidget {
   }
 }
 
-class Loader extends StatelessWidget {
+class Loader extends StatefulWidget {
   const Loader({
     super.key,
   });
+
+  @override
+  State<Loader> createState() => _LoaderState();
+}
+
+class _LoaderState extends State<Loader> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(Duration(seconds: 2), () {
+      Get.off(() => ArScreen());
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

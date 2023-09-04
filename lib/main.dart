@@ -138,7 +138,7 @@ class _LocalAndWebObjectsWidgetState extends State<LocalAndWebObjectsWidget> {
     } else {
       var newNode = ARNode(
           type: NodeType.localGLTF2,
-          uri: "assets/ar_models/scene.gltf",
+          uri: "assets/ar_models/water_cycle_animated/scene.gltf",
           scale: Vector3(0.2, 0.2, 0.2),
           position: Vector3(0.0, 0.0, 0.0),
           rotation: Vector4(1.0, 0.0, 0.0, 0.0));
@@ -147,24 +147,24 @@ class _LocalAndWebObjectsWidgetState extends State<LocalAndWebObjectsWidget> {
     }
   }
 
-  Future<void> onFileSystemObjectAtOriginButtonPressed() async {
-    if (this.fileSystemNode != null) {
-      this.arObjectManager!.removeNode(this.fileSystemNode!);
-      this.fileSystemNode = null;
-    } else {
-      var newNode = ARNode(
-          type: NodeType.fileSystemAppFolderGLB,
-          uri: "assets/ar_models/scene.gltf",
-          scale: Vector3(0.2, 0.2, 0.2));
-      //Alternative to use type fileSystemAppFolderGLTF2:
-      //var newNode = ARNode(
-      //    type: NodeType.fileSystemAppFolderGLTF2,
-      //    uri: "Chicken_01.gltf",
-      //    scale: Vector3(0.2, 0.2, 0.2));
-      bool? didAddFileSystemNode = await this.arObjectManager!.addNode(newNode);
-      this.fileSystemNode = (didAddFileSystemNode!) ? newNode : null;
-    }
-  }
+  // Future<void> onFileSystemObjectAtOriginButtonPressed() async {
+  //   if (this.fileSystemNode != null) {
+  //     this.arObjectManager!.removeNode(this.fileSystemNode!);
+  //     this.fileSystemNode = null;
+  //   } else {
+  //     var newNode = ARNode(
+  //         type: NodeType.fileSystemAppFolderGLB,
+  //         uri: "assets/ar_models/scene.gltf",
+  //         scale: Vector3(0.2, 0.2, 0.2));
+  //     //Alternative to use type fileSystemAppFolderGLTF2:
+  //     //var newNode = ARNode(
+  //     //    type: NodeType.fileSystemAppFolderGLTF2,
+  //     //    uri: "Chicken_01.gltf",
+  //     //    scale: Vector3(0.2, 0.2, 0.2));
+  //     bool? didAddFileSystemNode = await this.arObjectManager!.addNode(newNode);
+  //     this.fileSystemNode = (didAddFileSystemNode!) ? newNode : null;
+  //   }
+  // }
 
   Future<void> onLocalObjectShuffleButtonPressed() async {
     if (this.localObjectNode != null) {

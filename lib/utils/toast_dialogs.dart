@@ -104,7 +104,7 @@ AwesomeDialog getInfoDialog(
     padding: EdgeInsets.zero,
     autoDismiss: false,
     onDismissCallback: (type) {
-      log.d(type);
+      logger.d(type);
     },
     dismissOnBackKeyPress: false,
     headerAnimationLoop: false,

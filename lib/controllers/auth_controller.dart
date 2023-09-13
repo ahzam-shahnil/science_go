@@ -1,135 +1,94 @@
-// import 'dart:async';
+import 'dart:async';
 
-// import 'package:appwrite/models.dart';
-// import 'package:flutter/material.dart';
-// import 'package:get/get.dart';
-// import 'package:naqdina/app/views/auth/login/login_phone_screen.dart';
-// import 'package:naqdina/app/views/home/home_screen.dart';
-// import 'package:naqdina/app/views/splash/splash_screen.dart';
-// import 'package:naqdina/app/views/splash/welcome_screen/login_welcome_screen.dart';
-// import 'package:naqdina/app/views/splash/welcome_screen/signup_welcome_screen.dart';
+import 'package:appwrite/models.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:science_go/apis/auth_api.dart';
+import 'package:science_go/views/auth/login_email_screen.dart';
+import 'package:science_go/views/home/ar_screen.dart';
+import 'package:science_go/views/welcome_screen/welcome_screen.dart';
 
-// import '../apis/auth_api.dart';
-// import '../apis/user_api.dart';
-// import '../config/app_constants.dart';
-// import '../core/utils.dart';
-// import '../data/models/user_model.dart';
+import '../config/app_constants.dart';
+import '../core/utils.dart';
 
-// class AuthController extends GetxController {
-//   static AuthController instance = Get.find();
+class AuthController extends GetxController {
+  static AuthController instance = Get.find();
 
-//   final AuthAPI _authAPI;
-//   final UserAPI _userAPI;
+  final AuthAPI _authAPI;
 
-//   AuthController({
-//     required AuthAPI authAPI,
-//     required UserAPI userAPI,
-//   })  : _authAPI = authAPI,
-//         _userAPI = userAPI;
+  AuthController({
+    required AuthAPI authAPI,
+  }) : _authAPI = authAPI;
 
-//   // signInWithProvider({required String provider}) async {
-//   //   try {
-//   //     final session = await account.createOAuth2Session(provider: provider);
-//   //     currentUser = await account.get();
-//   //     status = AuthStatus.authenticated;
-//   //     return session;
-//   //   } finally {
-//   //     // notifyListeners();
-//   //   }
-//   // }
+  @override
+  void onInit() {
+    super.onInit();
+    logger.d('Auth Controller Initialed');
+    checkAuth();
+  }
 
-//   // Future<Preferences> getUserPreferences() async {
-//   //   return await account.getPrefs();
-//   // }
+  Future<User?> currentUser() async => _authAPI.currentUserAccount();
 
-//   // updatePreferences({required String bio}) async {
-//   //   return account.updatePrefs(prefs: {'bio': bio});
-//   // }
+  void signUp({
+    required String email,
+    required String password,
+    required BuildContext context,
+  }) async {
+    final res = await _authAPI.signUpEmail(
+      email: email,
+      password: password,
+    );
 
-//   @override
-//   void onInit() {
-//     super.onInit();
-//     log.d('Auth Controller Initialed');
-//     checkAuth();
-//   }
+    res.fold(
+      (l) => showSnackBar(context, l.message),
+      (r) async {
+        showSnackBar(context, 'Accounted created! Please login.');
+        //TODO: add go to Login Screen Here after Sign Up
+        Get.to(() => LogInEmailScreen());
+      },
+    );
+  }
 
-//   Future<User?> currentUser() async => _authAPI.currentUserAccount();
+  void login({
+    required String email,
+    required String password,
+    required BuildContext context,
+  }) async {
+    final res = await _authAPI.login(
+      email: email,
+      password: password,
+    );
 
-//   void signUp({
-//     required String email,
-//     required String password,
-//     required BuildContext context,
-//   }) async {
-//     final res = await _authAPI.signUp(
-//       email: email,
-//       password: password,
-//     );
+    res.fold(
+      (l) => showSnackBar(context, l.message),
+      (r) {
+        showSnackBar(context, 'Successfully Logged In');
+        //TODO: add got to Home Screen Here after login
+        Get.to(() => ArScreen());
+      },
+    );
+  }
 
-//     res.fold(
-//       (l) => showSnackBar(context, l.message),
-//       (r) async {
-//         UserModel userModel = UserModel(
-//           email: email,
-//           name: getNameFromEmail(email),
-//           followers: const [],
-//           following: const [],
-//           profilePic: '',
-//           bannerPic: '',
-//           uid: r.$id,
-//           bio: '',
-//           isTwitterBlue: false,
-//         );
-//         final res2 = await _userAPI.saveUserData(userModel);
-//         res2.fold((l) => showSnackBar(context, l.message), (r) {
-//           showSnackBar(context, 'Accounted created! Please login.');
-//           Get.to(() => const SplashScreen());
-//         });
-//       },
-//     );
-//   }
+  void logout(BuildContext context) async {
+    final res = await _authAPI.logout();
+    res.fold((l) => null, (r) {
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LogInEmailScreen(),
+        ),
+        (route) => false,
+      );
+    });
+  }
 
-//   void login({
-//     required String email,
-//     required String password,
-//     required BuildContext context,
-//   }) async {
-//     final res = await _authAPI.login(
-//       email: email,
-//       password: password,
-//     );
-
-//     res.fold(
-//       (l) => showSnackBar(context, l.message),
-//       (r) {
-//         Get.to(() => const LoginWelcomeScreen());
-//       },
-//     );
-//   }
-
-//   Future<UserModel> getUserData(String uid) async {
-//     final document = await _userAPI.getUserData(uid);
-//     final updatedUser = UserModel.fromMap(document.data);
-//     return updatedUser;
-//   }
-
-//   void logout(BuildContext context) async {
-//     final res = await _authAPI.logout();
-//     res.fold((l) => null, (r) {
-//       Navigator.pushAndRemoveUntil(
-//         context,
-//         MaterialPageRoute(
-//           builder: (context) => const LoginPhoneScreen(),
-//         ),
-//         (route) => false,
-//       );
-//     });
-//   }
-
-//   checkAuth() async {
-//     var user = await currentUser();
-//     if (user != null) {
-//       return Get.off(() => const HomeScreen());
-//     }
-//     Get.off(() => const SignUpWelcomeScreen());
-//   }
-// }
+  checkAuth() async {
+    var user = await currentUser();
+    if (user != null) {
+      showSnackBar(Get.context!, 'Already, Logged In');
+      //TODO: add got to Home Screen Here after login
+      return Get.off(() => ArScreen());
+    }
+    Get.off(() => const WelcomeScreen());
+  }
+}

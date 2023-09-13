@@ -16,7 +16,7 @@ final kCheckBoxTextStyle = Get.textTheme.titleLarge
 final kRegScreenPadding = EdgeInsets.only(left: Get.size.width * 0.1);
 
 //* For debug Printing
-Logger log = Logger();
+Logger logger = Logger();
 
 // for Permission Text
 const kCameraAccessText =

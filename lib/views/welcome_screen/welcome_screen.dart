@@ -6,8 +6,8 @@ import 'package:science_go/widgets/shared/app_logo.dart';
 import '../../../widgets/shared/rounded_button.dart';
 import '../../theme/app_colors.dart';
 
-class LoginWelcomeScreen extends StatelessWidget {
-  const LoginWelcomeScreen({super.key});
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

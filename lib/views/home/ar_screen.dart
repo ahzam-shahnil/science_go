@@ -12,11 +12,12 @@ import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math_64.dart';
 
+import '../../config/app_constants.dart';
+
 class ArScreen extends StatefulWidget {
   ArScreen({Key? key}) : super(key: key);
   @override
-  _ArScreenState createState() =>
-      _ArScreenState();
+  _ArScreenState createState() => _ArScreenState();
 }
 
 class _ArScreenState extends State<ArScreen> {
@@ -39,7 +40,7 @@ class _ArScreenState extends State<ArScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Local & Web Objects'),
+          title: const Text('Local Objects'),
         ),
         body: Container(
             child: Stack(children: [
@@ -51,14 +52,14 @@ class _ArScreenState extends State<ArScreen> {
               alignment: FractionalOffset.bottomCenter,
               child:
                   Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: onFileSystemObjectAtOriginButtonPressed,
-                        child: Text("Add/Remove Filesystem\nObject at Origin")),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //   children: [
+                //     ElevatedButton(
+                //         onPressed: onFileSystemObjectAtOriginButtonPressed,
+                //         child: Text("Add/Remove Filesystem\nObject at Origin")),
+                //   ],
+                // ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -83,7 +84,7 @@ class _ArScreenState extends State<ArScreen> {
       ARSessionManager arSessionManager,
       ARObjectManager arObjectManager,
       ARAnchorManager arAnchorManager,
-      ARLocationManager arLocationManager) {
+      ARLocationManager arLocationManager) async {
     this.arSessionManager = arSessionManager;
     this.arObjectManager = arObjectManager;
 
@@ -95,11 +96,14 @@ class _ArScreenState extends State<ArScreen> {
           handleTaps: false,
         );
     this.arObjectManager!.onInitialize();
+    // // Add a gltf model to the ARObjectManager
+    // var gltfModel = await arObjectManager.loadGltfModel(
+    //   'assets/gltf_model.gltf',
+    //   'assets/gltf_model.bin',
+    // );
 
-    // Alternative to use type fileSystemAppFolderGLTF2:
-    //_downloadAndUnpack(
-    //    "https://drive.google.com/uc?export=download&id=1fng7yiK0DIR0uem7XkV2nlPSGH9PysUs",
-    //    "Chicken_01.zip");
+    // // Add the gltf model to the scene
+    // arObjectManager.addArObject(gltfModel);
   }
 
   Future<void> onLocalObjectAtOriginButtonPressed() async {
@@ -109,33 +113,37 @@ class _ArScreenState extends State<ArScreen> {
     } else {
       var newNode = ARNode(
           type: NodeType.localGLTF2,
-          uri: "assets/ar_models/scene.gltf",
+          uri: "Models/scene/new.gltf",
           scale: Vector3(0.2, 0.2, 0.2),
           position: Vector3(0.0, 0.0, 0.0),
           rotation: Vector4(1.0, 0.0, 0.0, 0.0));
-      bool? didAddLocalNode = await this.arObjectManager!.addNode(newNode);
-      this.localObjectNode = (didAddLocalNode!) ? newNode : null;
+      try {
+        bool? didAddLocalNode = await this.arObjectManager!.addNode(newNode);
+        this.localObjectNode = (didAddLocalNode!) ? newNode : null;
+      } catch (e) {
+        logger.e(e);
+      }
     }
   }
 
-  Future<void> onFileSystemObjectAtOriginButtonPressed() async {
-    if (this.fileSystemNode != null) {
-      this.arObjectManager!.removeNode(this.fileSystemNode!);
-      this.fileSystemNode = null;
-    } else {
-      var newNode = ARNode(
-          type: NodeType.fileSystemAppFolderGLB,
-          uri: "assets/ar_models/scene.gltf",
-          scale: Vector3(0.2, 0.2, 0.2));
-      //Alternative to use type fileSystemAppFolderGLTF2:
-      //var newNode = ARNode(
-      //    type: NodeType.fileSystemAppFolderGLTF2,
-      //    uri: "Chicken_01.gltf",
-      //    scale: Vector3(0.2, 0.2, 0.2));
-      bool? didAddFileSystemNode = await this.arObjectManager!.addNode(newNode);
-      this.fileSystemNode = (didAddFileSystemNode!) ? newNode : null;
-    }
-  }
+  // Future<void> onFileSystemObjectAtOriginButtonPressed() async {
+  //   if (this.fileSystemNode != null) {
+  //     this.arObjectManager!.removeNode(this.fileSystemNode!);
+  //     this.fileSystemNode = null;
+  //   } else {
+  //     var newNode = ARNode(
+  //         type: NodeType.fileSystemAppFolderGLB,
+  //         uri: "Models/test.gltf",
+  //         scale: Vector3(0.2, 0.2, 0.2));
+  //     //Alternative to use type fileSystemAppFolderGLTF2:
+  //     //var newNode = ARNode(
+  //     //    type: NodeType.fileSystemAppFolderGLTF2,
+  //     //    uri: "Chicken_01.gltf",
+  //     //    scale: Vector3(0.2, 0.2, 0.2));
+  //     bool? didAddFileSystemNode = await this.arObjectManager!.addNode(newNode);
+  //     this.fileSystemNode = (didAddFileSystemNode!) ? newNode : null;
+  //   }
+  // }
 
   Future<void> onLocalObjectShuffleButtonPressed() async {
     if (this.localObjectNode != null) {
@@ -159,3 +167,35 @@ class _ArScreenState extends State<ArScreen> {
     }
   }
 }
+
+// import 'package:flutter/material.dart';
+// import 'package:model_viewer_plus/model_viewer_plus.dart';
+
+// void main() => runApp(const MyApp());
+
+// class MyApp extends StatelessWidget {
+//   const MyApp({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: Scaffold(
+//         appBar: AppBar(title: const Text('Model Viewer')),
+//         body: const ModelViewer(
+//           backgroundColor: Colors.blueAccent,
+//           src: 'assets/ar_models/test.glb',
+//           alt: 'A 3D model of an Water Cycle',
+//           ar: true,
+//           exposure: 0.4,
+
+//           arModes: ['scene-viewer', 'webxr', 'quick-look'],
+//           autoRotate: true,
+
+//           // iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+//           disableZoom: false,
+//         ),
+//       ),
+//     );
+//   }
+// }

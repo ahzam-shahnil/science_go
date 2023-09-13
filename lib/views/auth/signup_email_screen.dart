@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:science_go/config/controllers.dart';
 import 'package:science_go/widgets/shared/app_logo.dart';
 
 import '../../../components/rectangular_password_field.dart';
@@ -141,7 +142,10 @@ class _SignUpEmailScreenState extends State<SignUpEmailScreen> {
                     bgColor: AppColors.lightGreyBtnColor,
                     text: 'Sign Up',
                     textColor: AppColors.mediumGreyTextColor,
-                    onPressed: () {},
+                    onPressed: () => authController.signUp(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        context: context),
                   )
                 ],
               ),

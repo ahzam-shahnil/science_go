@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:science_go/config/controllers.dart';
 import 'package:science_go/widgets/shared/app_logo.dart';
 
 import '../../../components/rectangular_password_field.dart';
@@ -72,12 +73,12 @@ class LogInEmailScreen extends StatelessWidget {
                 SizedBox(
                   height: 0.06.sh,
                 ),
-              
                 const Spacer(),
                 RoundedButton(
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () => authController.login(
+                        email: emailController.text.trim(),
+                        password: passwordController.text.trim(),
+                        context: context),
                     bgColor: AppColors.lightGreyBtnColor,
                     text: 'Log in',
                     textColor: AppColors.mediumGreyTextColor)

@@ -1,20 +1,20 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter/material.dart';
 
-// class UIConstants {
-//   static AppBar appBar() {
-//     return AppBar(
-//       title: SvgPicture.asset(
-//         '',
-//         height: 30,
-//       ),
-//       centerTitle: true,
-//     );
-//   }
+import '../theme/app_colors.dart';
 
-//   // static const List<Widget> bottomTabBarPages = [
-//   //   TweetList(),
-//   //   ExploreView(),
-//   //   NotificationView(),
-//   // ];
-// }
+class UIConstants {
+  static AppBar appBar() {
+    return AppBar(
+      iconTheme: const IconThemeData(color: AppColors.greenColor),
+      title: null,
+      centerTitle: true,
+      backgroundColor: Colors.transparent,
+    );
+  }
+
+  // static const List<Widget> bottomTabBarPages = [
+  //   TweetList(),
+  //   ExploreView(),
+  //   NotificationView(),
+  // ];
+}

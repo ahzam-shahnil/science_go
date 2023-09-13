@@ -1,19 +1,15 @@
 // import 'dart:async';
 
-// import 'package:appwrite/models.dart';
+
 // import 'package:flutter/material.dart';
 // import 'package:get/get.dart';
-// import 'package:naqdina/app/views/auth/login/login_phone_screen.dart';
-// import 'package:naqdina/app/views/home/home_screen.dart';
-// import 'package:naqdina/app/views/splash/splash_screen.dart';
-// import 'package:naqdina/app/views/splash/welcome_screen/login_welcome_screen.dart';
-// import 'package:naqdina/app/views/splash/welcome_screen/signup_welcome_screen.dart';
 
-// import '../apis/auth_api.dart';
-// import '../apis/user_api.dart';
+
+
 // import '../config/app_constants.dart';
 // import '../core/utils.dart';
-// import '../data/models/user_model.dart';
+// import '../views/splash/splash_screen.dart';
+
 
 // class AuthController extends GetxController {
 //   static AuthController instance = Get.find();

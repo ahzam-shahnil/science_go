@@ -204,10 +204,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:model_viewer_plus/model_viewer_plus.dart';
+import 'package:science_go/views/auth/signup_email_screen.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  
   const MyApp({super.key});
 
   @override
@@ -216,19 +218,21 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(title: const Text('Model Viewer')),
-        body: const ModelViewer(
-          backgroundColor: Colors.blueAccent,
-          src: 'assets/ar_models/test.glb',
-          alt: 'A 3D model of an Water Cycle',
-          ar: true,
-          exposure: 0.4,
+        body: SignUpEmailScreen(),
+        //const ModelViewer(
+        //   backgroundColor: Colors.blueAccent,
+        //   src: 'assets/ar_models/test.glb',
+        //   alt: 'A 3D model of an Water Cycle',
+        //   ar: true,
+        //   exposure: 0.4,
 
-          arModes: ['scene-viewer', 'webxr', 'quick-look'],
-          autoRotate: true,
+        //   arModes: ['scene-viewer', 'webxr', 'quick-look'],
+        //   autoRotate: true,
 
-          // iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
-          disableZoom: false,
-        ),
+        //   // iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
+        //   disableZoom: false,
+        // ),
+
       ),
     );
   }

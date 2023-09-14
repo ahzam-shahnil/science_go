@@ -12,6 +12,7 @@ class RectangularPasswordField extends StatefulWidget {
   final IconData? icon;
   final String? text;
   final Color? textColor;
+  final Color? filledColor;
   final bool showBorder;
   const RectangularPasswordField(
       {Key? key,
@@ -23,7 +24,8 @@ class RectangularPasswordField extends StatefulWidget {
       this.icon,
       this.color,
       this.textColor,
-      this.showBorder = true})
+      this.showBorder = true,
+      this.filledColor})
       : super(key: key);
 
   @override
@@ -85,13 +87,14 @@ class _RectangularPasswordFieldState extends State<RectangularPasswordField> {
           // padding: EdgeInsets.only(top: 0.01.sh),
           icon: Icon(
             _isObscure ? Icons.visibility : Icons.visibility_off,
-            color: AppColors.goldColor,
+            color: AppColors.textColor,
             size: 0.07.sw,
           ),
         ),
-
+        filled: true,
+        fillColor: widget.filledColor,
         border: widget.showBorder
-            ? OutlineInputBorder(borderRadius: BorderRadius.circular(30))
+            ? OutlineInputBorder(borderRadius: BorderRadius.circular(15))
             : InputBorder.none,
       ),
     );

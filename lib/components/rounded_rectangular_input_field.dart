@@ -18,6 +18,7 @@ class RoundedRectangleInputField extends StatelessWidget {
   final bool? isEnabled;
   final double? height;
   final Color? textColor;
+  final Color? filledColor;
   final bool showBorder;
   final ScrollController scrollController = ScrollController();
   RoundedRectangleInputField({
@@ -35,6 +36,7 @@ class RoundedRectangleInputField extends StatelessWidget {
     this.height,
     this.textColor,
     this.showBorder = true,
+    this.filledColor,
   }) : super(key: key);
 
   @override
@@ -66,7 +68,7 @@ class RoundedRectangleInputField extends StatelessWidget {
         icon: icon != null
             ? Icon(
                 icon,
-                color: AppColors.goldColor,
+                color: AppColors.greenColor,
               )
             : null,
         hintText: hintText,
@@ -78,8 +80,14 @@ class RoundedRectangleInputField extends StatelessWidget {
             ),
         hintMaxLines: 1,
         isDense: true,
+        fillColor: filledColor,
+        filled: true,
         border: showBorder
-            ? OutlineInputBorder(borderRadius: BorderRadius.circular(30))
+            ? OutlineInputBorder(
+                borderRadius: BorderRadius.circular(
+                  15,
+                ),
+              )
             : InputBorder.none,
       ),
       minLines: 1,

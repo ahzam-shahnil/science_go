@@ -1,9 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:science_go/views/auth/login_email_screen.dart';
+import 'package:science_go/views/auth/signup_email_screen.dart';
 import 'package:science_go/widgets/shared/app_logo.dart';
 
-import '../../../widgets/shared/rounded_button.dart';
 import '../../theme/app_colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -13,70 +15,92 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
+      extendBodyBehindAppBar: true,
+      extendBody: true,
       body: Stack(
         children: [
-          const AppLogo(),
+          Image.asset(
+            'assets/gif/leaves.gif',
+            fit: BoxFit.fitHeight,
+            height: 1.sh,
+          ),
+          Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: EdgeInsets.symmetric(
+                vertical: 0.22.sh,
+              ),
+              child: RoundedAppLogo(),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
-            child: Container(
-              height: 0.67.sh,
-              decoration: BoxDecoration(
-                  color: AppColors.whiteColor,
-                  borderRadius: BorderRadius.circular(0.15.sw)),
-              child: Padding(
-                padding:
-                    EdgeInsets.symmetric(horizontal: 0.1.sw, vertical: 0.08.sw),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    AutoSizeText(
-                      "Welcome",
-                      maxLines: 1,
-                      textAlign: TextAlign.start,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 0.078.sw,
-                              color: AppColors.textColor),
-                    ),
-                    SizedBox(
-                      height: 0.03.sh,
-                    ),
-                    RoundedButton(
-                      bgColor: AppColors.goldColor,
-                      text: 'Login with email',
-                      textColor: AppColors.textColor,
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 8.0),
+              child: Row(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.whiteColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          minimumSize: Size(0.45.sw, 50)),
                       onPressed: () {
-                        // Get.to(() => LogInEmailScreen());
+                        Get.to(() => LogInEmailScreen());
                       },
-                    ),
-                    SizedBox(
-                      height: 0.03.sh,
-                    ),
-                    RoundedButton(
-                      bgColor: AppColors.whiteColor,
-                      text: 'Login with Phone number',
-                      textColor: AppColors.textColor,
-                      isBorder: true,
+                      child: AutoSizeText('LOG IN',
+                          maxLines: 1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: AppColors.textColor,
+                                  fontSize: 0.05.sw))),
+                  ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4)),
+                          backgroundColor: AppColors.textColor,
+                          minimumSize: Size(0.45.sw, 50)),
                       onPressed: () {
-                        // Get.to(() => const LoginPhoneScreen());
+                        Get.to(() => SignUpEmailScreen());
                       },
-                    ),
-                    SizedBox(
-                      height: 0.03.sh,
-                    ),
-                    SizedBox(
-                      height: 0.03.sh,
-                    ),
-                  ],
-                ),
+                      child: AutoSizeText('REGISTER',
+                          maxLines: 1,
+                          style: Theme.of(context)
+                              .textTheme
+                              .displayMedium
+                              ?.copyWith(
+                                  fontWeight: FontWeight.w800,
+                                  color: AppColors.whiteColor,
+                                  fontSize: 0.05.sw))),
+                ],
               ),
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class RoundedAppLogo extends StatelessWidget {
+  const RoundedAppLogo({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 0.15.sh,
+      child: AppLogo(),
+      clipBehavior: Clip.hardEdge,
+      decoration: BoxDecoration(
+        // color: AppColors.whiteColor,
+        borderRadius: BorderRadius.circular(0.02.sw),
       ),
     );
   }

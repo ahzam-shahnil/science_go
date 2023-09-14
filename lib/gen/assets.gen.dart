@@ -12,14 +12,8 @@ import 'package:flutter/widgets.dart';
 class $AssetsArModelsGen {
   const $AssetsArModelsGen();
 
-  /// File path: assets/ar_models/scene.gltf
-  String get scene => 'assets/ar_models/scene.gltf';
-
   $AssetsArModelsWaterCycleAudioGen get waterCycleAudio =>
       const $AssetsArModelsWaterCycleAudioGen();
-
-  /// List of all assets
-  List<String> get values => [scene];
 }
 
 class $AssetsImagesGen {
@@ -72,7 +66,7 @@ class $AssetsImagesLogosGen {
 
   /// File path: assets/images/logos/cover_logo.jpeg
   AssetGenImage get coverLogo =>
-      const AssetGenImage('assets/images/logos/cover_logo.jpeg');
+      const AssetGenImage('assets/images/logos/cover_logo.png');
 
   /// File path: assets/images/logos/logo_dark.jpeg
   AssetGenImage get logoDark =>
@@ -84,7 +78,7 @@ class $AssetsImagesLogosGen {
 
   /// File path: assets/images/logos/name_logo.jpeg
   AssetGenImage get nameLogo =>
-      const AssetGenImage('assets/images/logos/name_logo.jpeg');
+      const AssetGenImage('assets/images/logos/name_logo.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [coverLogo, logoDark, logoLight, nameLogo];

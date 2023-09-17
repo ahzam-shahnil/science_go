@@ -2,9 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:science_go/gen/assets.gen.dart';
 import 'package:science_go/views/auth/login_email_screen.dart';
 import 'package:science_go/views/auth/signup_email_screen.dart';
 import 'package:science_go/widgets/shared/app_logo.dart';
+import 'package:science_go/widgets/shared/giffy.dart';
 
 import '../../theme/app_colors.dart';
 
@@ -14,16 +16,12 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.whiteColor,
+      // backgroundColor: AppColors.whiteColor,
       extendBodyBehindAppBar: true,
       extendBody: true,
       body: Stack(
         children: [
-          Image.asset(
-            'assets/gif/leaves.gif',
-            fit: BoxFit.fitHeight,
-            height: 1.sh,
-          ),
+          Giffy(assetPath: Assets.gif.leaves.path),
           Align(
             alignment: Alignment.topCenter,
             child: Padding(
@@ -36,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
+              padding: EdgeInsets.only(bottom: 0.03.sh),
               child: Row(
                 // crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -99,7 +97,6 @@ class RoundedAppLogo extends StatelessWidget {
       child: AppLogo(),
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
-        // color: AppColors.whiteColor,
         borderRadius: BorderRadius.circular(0.02.sw),
       ),
     );

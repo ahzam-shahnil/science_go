@@ -6,7 +6,6 @@ import 'package:get/get.dart';
 import 'package:science_go/apis/auth_api.dart';
 import 'package:science_go/views/auth/login_email_screen.dart';
 import 'package:science_go/views/home/ar_screen.dart';
-import 'package:science_go/views/welcome_screen/welcome_screen.dart';
 
 import '../config/app_constants.dart';
 import '../core/utils.dart';
@@ -83,12 +82,12 @@ class AuthController extends GetxController {
   }
 
   checkAuth() async {
-    var user = await currentUser();
-    if (user != null) {
-      showSnackBar(Get.context!, 'Already, Logged In');
-      //TODO: add got to Home Screen Here after login
-      return Get.off(() => ArScreen());
-    }
-    Get.off(() => const WelcomeScreen());
+    // var user = await currentUser();
+    // if (user != null) {
+    //   showSnackBar(Get.context!, 'Already, Logged In');
+    //   //TODO: add got to Home Screen Here after login
+    return Get.off(() => ArScreen());
+    // }
+    // Get.off(() => const WelcomeScreen());
   }
 }

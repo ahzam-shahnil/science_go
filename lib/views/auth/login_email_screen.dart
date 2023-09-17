@@ -1,8 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:science_go/components/blurry.dart';
 import 'package:science_go/config/controllers.dart';
+import 'package:science_go/config/ui_constants.dart';
+import 'package:science_go/gen/assets.gen.dart';
 import 'package:science_go/views/welcome_screen/welcome_screen.dart';
+import 'package:science_go/widgets/shared/giffy.dart';
 
 import '../../../components/rectangular_password_field.dart';
 import '../../../components/rounded_rectangular_input_field.dart';
@@ -16,30 +20,21 @@ class LogInEmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: UIConstants.appBar(),
-      // extendBodyBehindAppBar: true,
-
-      // extendBody: true,
-
-      body: SafeArea(
-        child: GestureDetector(
-          onTap: () => FocusScope.of(context).unfocus(),
-          child: Container(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: Image.asset(
-                      'assets/gif/starry.gif',
-                      height: 1.sh,
-                    ).image)),
+      appBar: UIConstants.appBar(),
+      extendBodyBehindAppBar: true,
+      extendBody: true,
+      body: Stack(
+        children: [
+          Giffy(assetPath: Assets.gif.lake.path),
+          GestureDetector(
+            onTap: () => FocusScope.of(context).unfocus(),
             child: SingleChildScrollView(
-              primary: true,
-              child: Container(
-                height: 1.sh,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 0.03.sh),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  // mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
+                  // mainAxisSize: MainAxisSize.max,
                   children: [
                     SizedBox(
                       height: 0.05.sh,
@@ -48,17 +43,20 @@ class LogInEmailScreen extends StatelessWidget {
                     SizedBox(
                       height: 0.03.sh,
                     ),
-                    AutoSizeText(
-                      "LOG IN",
-                      maxLines: 1,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineMedium
-                          ?.copyWith(
-                              fontWeight: FontWeight.w800,
-                              fontSize: 0.068.sw,
-                              color: AppColors.whiteColor),
+                    Blurry(
+                      borderRadius: 12,
+                      child: AutoSizeText(
+                        "LOG IN",
+                        maxLines: 1,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                                fontWeight: FontWeight.w800,
+                                fontSize: 0.068.sw,
+                                color: AppColors.whiteColor),
+                      ),
                     ),
                     SizedBox(
                       height: 0.03.sh,
@@ -117,7 +115,7 @@ class LogInEmailScreen extends StatelessWidget {
               ),
             ),
           ),
-        ),
+        ],
       ),
     );
   }

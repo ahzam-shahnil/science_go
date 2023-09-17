@@ -9,62 +9,176 @@
 
 import 'package:flutter/widgets.dart';
 
-class $AssetsArModelsGen {
-  const $AssetsArModelsGen();
+class $ModelsGen {
+  const $ModelsGen();
 
-  $AssetsArModelsWaterCycleAudioGen get waterCycleAudio =>
-      const $AssetsArModelsWaterCycleAudioGen();
+  $ModelsAnimalCellGen get animalCell => const $ModelsAnimalCellGen();
+  $ModelsGreenGen get green => const $ModelsGreenGen();
+  $ModelsHeartGen get heart => const $ModelsHeartGen();
+  $ModelsRedGen get red => const $ModelsRedGen();
+  $ModelsWhiteGen get white => const $ModelsWhiteGen();
+}
+
+class $ModelsAnimalCellGen {
+  const $ModelsAnimalCellGen();
+
+  /// File path: Models/animal_cell/cell.gltf
+  String get cell => 'Models/animal_cell/cell.gltf';
+
+  /// File path: Models/animal_cell/cell_data.bin
+  String get cellData => 'Models/animal_cell/cell_data.bin';
+
+  /// File path: Models/animal_cell/cell_img0.png
+  AssetGenImage get cellImg0 =>
+      const AssetGenImage('Models/animal_cell/cell_img0.png');
+
+  /// File path: Models/animal_cell/cell_img1.png
+  AssetGenImage get cellImg1 =>
+      const AssetGenImage('Models/animal_cell/cell_img1.png');
+
+  /// File path: Models/animal_cell/cell_img2.png
+  AssetGenImage get cellImg2 =>
+      const AssetGenImage('Models/animal_cell/cell_img2.png');
+
+  /// File path: Models/animal_cell/cell_img3.png
+  AssetGenImage get cellImg3 =>
+      const AssetGenImage('Models/animal_cell/cell_img3.png');
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [cell, cellData, cellImg0, cellImg1, cellImg2, cellImg3];
+}
+
+class $ModelsGreenGen {
+  const $ModelsGreenGen();
+
+  /// File path: Models/green/green.bin
+  String get greenBin => 'Models/green/green.bin';
+
+  /// File path: Models/green/green.gltf
+  String get greenGltf => 'Models/green/green.gltf';
+
+  /// File path: Models/green/license.txt
+  String get license => 'Models/green/license.txt';
+
+  /// List of all assets
+  List<String> get values => [greenBin, greenGltf, license];
+}
+
+class $ModelsHeartGen {
+  const $ModelsHeartGen();
+
+  /// File path: Models/heart/heart.gltf
+  String get heart => 'Models/heart/heart.gltf';
+
+  /// File path: Models/heart/heart_data.bin
+  String get heartData => 'Models/heart/heart_data.bin';
+
+  /// File path: Models/heart/heart_img0.png
+  AssetGenImage get heartImg0 =>
+      const AssetGenImage('Models/heart/heart_img0.png');
+
+  /// File path: Models/heart/heart_img1.png
+  AssetGenImage get heartImg1 =>
+      const AssetGenImage('Models/heart/heart_img1.png');
+
+  /// File path: Models/heart/heart_img2.png
+  AssetGenImage get heartImg2 =>
+      const AssetGenImage('Models/heart/heart_img2.png');
+
+  /// File path: Models/heart/heart_img3.png
+  AssetGenImage get heartImg3 =>
+      const AssetGenImage('Models/heart/heart_img3.png');
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [heart, heartData, heartImg0, heartImg1, heartImg2, heartImg3];
+}
+
+class $ModelsRedGen {
+  const $ModelsRedGen();
+
+  /// File path: Models/red/red.bin
+  String get redBin => 'Models/red/red.bin';
+
+  /// File path: Models/red/red.gltf
+  String get redGltf => 'Models/red/red.gltf';
+
+  /// List of all assets
+  List<String> get values => [redBin, redGltf];
+}
+
+class $ModelsWhiteGen {
+  const $ModelsWhiteGen();
+
+  /// File path: Models/white/white.bin
+  String get whiteBin => 'Models/white/white.bin';
+
+  /// File path: Models/white/white.gltf
+  String get whiteGltf => 'Models/white/white.gltf';
+
+  /// List of all assets
+  List<String> get values => [whiteBin, whiteGltf];
+}
+
+class $AssetsGifGen {
+  const $AssetsGifGen();
+
+  /// File path: assets/gif/lake.gif
+  AssetGenImage get lake => const AssetGenImage('assets/gif/lake.gif');
+
+  /// File path: assets/gif/leaves.gif
+  AssetGenImage get leaves => const AssetGenImage('assets/gif/leaves.gif');
+
+  /// File path: assets/gif/starry.gif
+  AssetGenImage get starry => const AssetGenImage('assets/gif/starry.gif');
+
+  /// List of all assets
+  List<AssetGenImage> get values => [lake, leaves, starry];
 }
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/ar_btn.png
+  AssetGenImage get arBtn => const AssetGenImage('assets/images/ar_btn.png');
+
+  /// File path: assets/images/arrow.png
+  AssetGenImage get arrow => const AssetGenImage('assets/images/arrow.png');
+
+  /// File path: assets/images/cell.png
+  AssetGenImage get cell => const AssetGenImage('assets/images/cell.png');
+
+  /// File path: assets/images/duck.png
+  AssetGenImage get duck => const AssetGenImage('assets/images/duck.png');
+
+  /// File path: assets/images/green.png
+  AssetGenImage get green => const AssetGenImage('assets/images/green.png');
+
+  /// File path: assets/images/heart.png
+  AssetGenImage get heart => const AssetGenImage('assets/images/heart.png');
+
   $AssetsImagesLogosGen get logos => const $AssetsImagesLogosGen();
+
+  /// File path: assets/images/red.png
+  AssetGenImage get red => const AssetGenImage('assets/images/red.png');
 
   /// File path: assets/images/triangle.png
   AssetGenImage get triangle =>
       const AssetGenImage('assets/images/triangle.png');
 
-  /// List of all assets
-  List<AssetGenImage> get values => [triangle];
-}
-
-class $AssetsArModelsWaterCycleAudioGen {
-  const $AssetsArModelsWaterCycleAudioGen();
-
-  /// File path: assets/ar_models/water_cycle_audio/Collection.m4a
-  String get collection => 'assets/ar_models/water_cycle_audio/Collection.m4a';
-
-  /// File path: assets/ar_models/water_cycle_audio/Condensation.m4a
-  String get condensation =>
-      'assets/ar_models/water_cycle_audio/Condensation.m4a';
-
-  /// File path: assets/ar_models/water_cycle_audio/Evaporation.m4a
-  String get evaporation =>
-      'assets/ar_models/water_cycle_audio/Evaporation.m4a';
-
-  /// File path: assets/ar_models/water_cycle_audio/Introduction Water cycle.m4a
-  String get introductionWaterCycle =>
-      'assets/ar_models/water_cycle_audio/Introduction Water cycle.m4a';
-
-  /// File path: assets/ar_models/water_cycle_audio/Precipitation.m4a
-  String get precipitation =>
-      'assets/ar_models/water_cycle_audio/Precipitation.m4a';
+  /// File path: assets/images/white.png
+  AssetGenImage get white => const AssetGenImage('assets/images/white.png');
 
   /// List of all assets
-  List<String> get values => [
-        collection,
-        condensation,
-        evaporation,
-        introductionWaterCycle,
-        precipitation
-      ];
+  List<AssetGenImage> get values =>
+      [arBtn, arrow, cell, duck, green, heart, red, triangle, white];
 }
 
 class $AssetsImagesLogosGen {
   const $AssetsImagesLogosGen();
 
-  /// File path: assets/images/logos/cover_logo.jpeg
+  /// File path: assets/images/logos/cover_logo.png
   AssetGenImage get coverLogo =>
       const AssetGenImage('assets/images/logos/cover_logo.png');
 
@@ -76,7 +190,7 @@ class $AssetsImagesLogosGen {
   AssetGenImage get logoLight =>
       const AssetGenImage('assets/images/logos/logo_light.jpeg');
 
-  /// File path: assets/images/logos/name_logo.jpeg
+  /// File path: assets/images/logos/name_logo.png
   AssetGenImage get nameLogo =>
       const AssetGenImage('assets/images/logos/name_logo.png');
 
@@ -87,7 +201,8 @@ class $AssetsImagesLogosGen {
 class Assets {
   Assets._();
 
-  static const $AssetsArModelsGen arModels = $AssetsArModelsGen();
+  static const $ModelsGen models = $ModelsGen();
+  static const $AssetsGifGen gif = $AssetsGifGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 

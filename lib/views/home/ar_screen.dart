@@ -1,201 +1,200 @@
-import 'dart:io';
-import 'dart:math';
-
 import 'package:ar_flutter_plugin/ar_flutter_plugin.dart';
 import 'package:ar_flutter_plugin/datatypes/config_planedetection.dart';
-import 'package:ar_flutter_plugin/datatypes/node_types.dart';
-import 'package:ar_flutter_plugin/managers/ar_anchor_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_location_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_object_manager.dart';
-import 'package:ar_flutter_plugin/managers/ar_session_manager.dart';
-import 'package:ar_flutter_plugin/models/ar_node.dart';
 import 'package:flutter/material.dart';
-import 'package:vector_math/vector_math_64.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:science_go/config/controllers.dart';
+import 'package:science_go/gen/assets.gen.dart';
+import 'package:science_go/theme/app_colors.dart';
+import 'package:science_go/utils/color_extension.dart';
+import 'package:science_go/views/home/explore_screen.dart';
+import 'package:science_go/views/home/widgets/home_drawer.dart';
+import 'package:science_go/widgets/shared/circle_container.dart';
 
 import '../../config/app_constants.dart';
 
 class ArScreen extends StatefulWidget {
-  ArScreen({Key? key}) : super(key: key);
   @override
-  _ArScreenState createState() => _ArScreenState();
+  State<ArScreen> createState() => _ArScreenState();
 }
 
 class _ArScreenState extends State<ArScreen> {
-  ARSessionManager? arSessionManager;
-  ARObjectManager? arObjectManager;
-  //String localObjectReference;
-  ARNode? localObjectNode;
-  //String webObjectReference;
-  ARNode? webObjectNode;
-  ARNode? fileSystemNode;
-  HttpClient? httpClient;
-
-  @override
-  void dispose() {
-    super.dispose();
-    arSessionManager!.dispose();
-  }
-
+  // @override
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Local Objects'),
-        ),
-        body: Container(
-            child: Stack(children: [
+      extendBodyBehindAppBar: true,
+      // extendBody: true,
+      // backgroundColor: AppColors.greenColor.lighten(),
+      drawer: HomeDrawer(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      body: Stack(
+        children: [
           ARView(
-            onARViewCreated: onARViewCreated,
+            onARViewCreated: arController.onARViewCreated,
             planeDetectionConfig: PlaneDetectionConfig.horizontalAndVertical,
           ),
-          Align(
-              alignment: FractionalOffset.bottomCenter,
-              child:
-                  Column(mainAxisAlignment: MainAxisAlignment.end, children: [
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                //   children: [
-                //     ElevatedButton(
-                //         onPressed: onFileSystemObjectAtOriginButtonPressed,
-                //         child: Text("Add/Remove Filesystem\nObject at Origin")),
-                //   ],
-                // ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: onLocalObjectAtOriginButtonPressed,
-                        child: Text("Add/Remove Local\nObject at Origin")),
-                  ],
+          Positioned(
+              bottom: 0.07.sh,
+              left: 0,
+              right: 0,
+              child: CircularContainer(
+                radius: 0.08.sw,
+                color: AppColors.textColor.lighten(),
+              )),
+          Positioned(
+              bottom: 0.1.sh,
+              left: 0.3.sw,
+              right: 0,
+              child: GestureDetector(
+                onTap: () {
+                  logger.d('Ar button Pressed');
+                  arController.toggleArBtn();
+                },
+                child: Image.asset(
+                  Assets.images.arBtn.path,
+                  height: 0.15.sw,
+                  width: 0.15.sw,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                        onPressed: onLocalObjectShuffleButtonPressed,
-                        child: Text("Shuffle Local\nobject at Origin")),
-                  ],
-                )
-              ]))
-        ])));
-  }
+              )),
+          Obx(() => Positioned(
+                bottom: 0.28.sh,
+                left: 0,
+                right: 0,
+                child: Visibility(
+                  visible: arController.isArButtonShown.value,
+                  child: TextButton(
+                      onPressed: () {
+                        logger.d('Upward pressed');
+                        Get.to(() => ExploreScreen());
+                      },
+                      child: Image.asset(
+                        Assets.images.arrow.path,
+                        height: 0.15.sw,
+                        width: 0.15.sw,
+                      )),
+                ),
+              )),
+          Positioned(
+            bottom: 0.18.sh,
+            left: 0,
+            right: 0,
+            child: Obx(
+              () => Visibility(
+                visible: arController.isArButtonShown.value,
+                child: Container(
+                  color: AppColors.textColor.lighten(7).withOpacity(0.5),
+                  padding: EdgeInsets.symmetric(vertical: 0.01.sh),
+                  child: LayoutBuilder(builder: (BuildContext context,
+                      BoxConstraints viewportConstraints) {
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      primary: true,
+                      physics: ScrollPhysics(),
+                      child: ConstrainedBox(
+                        constraints: BoxConstraints(
+                          minWidth: viewportConstraints.maxWidth,
+                        ),
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.white.path,
+                              onTap: () {
+                                logger.i('White pressed!');
 
-  void onARViewCreated(
-      ARSessionManager arSessionManager,
-      ARObjectManager arObjectManager,
-      ARAnchorManager arAnchorManager,
-      ARLocationManager arLocationManager) async {
-    this.arSessionManager = arSessionManager;
-    this.arObjectManager = arObjectManager;
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/white/white.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.red.path,
+                              onTap: () {
+                                logger.i('red pressed!');
 
-    this.arSessionManager!.onInitialize(
-          showFeaturePoints: false,
-          showPlanes: true,
-          customPlaneTexturePath: "assets/images/triangle.png",
-          showWorldOrigin: true,
-          handleTaps: false,
-        );
-    this.arObjectManager!.onInitialize();
-    // // Add a gltf model to the ARObjectManager
-    // var gltfModel = await arObjectManager.loadGltfModel(
-    //   'assets/gltf_model.gltf',
-    //   'assets/gltf_model.bin',
-    // );
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/red/red.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.green.path,
+                              onTap: () {
+                                logger.i('green pressed!');
 
-    // // Add the gltf model to the scene
-    // arObjectManager.addArObject(gltfModel);
-  }
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/green/green.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.cell.path,
+                              onTap: () {
+                                logger.i('cell pressed!');
 
-  Future<void> onLocalObjectAtOriginButtonPressed() async {
-    if (this.localObjectNode != null) {
-      this.arObjectManager!.removeNode(this.localObjectNode!);
-      this.localObjectNode = null;
-    } else {
-      var newNode = ARNode(
-          type: NodeType.localGLTF2,
-          uri: "Models/scene/new.gltf",
-          scale: Vector3(0.2, 0.2, 0.2),
-          position: Vector3(0.0, 0.0, 0.0),
-          rotation: Vector4(1.0, 0.0, 0.0, 0.0));
-      try {
-        bool? didAddLocalNode = await this.arObjectManager!.addNode(newNode);
-        this.localObjectNode = (didAddLocalNode!) ? newNode : null;
-      } catch (e) {
-        logger.e(e);
-      }
-    }
-  }
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/animal_cell/cell.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.heart.path,
+                              onTap: () {
+                                logger.i('Heart pressed!');
 
-  // Future<void> onFileSystemObjectAtOriginButtonPressed() async {
-  //   if (this.fileSystemNode != null) {
-  //     this.arObjectManager!.removeNode(this.fileSystemNode!);
-  //     this.fileSystemNode = null;
-  //   } else {
-  //     var newNode = ARNode(
-  //         type: NodeType.fileSystemAppFolderGLB,
-  //         uri: "Models/test.gltf",
-  //         scale: Vector3(0.2, 0.2, 0.2));
-  //     //Alternative to use type fileSystemAppFolderGLTF2:
-  //     //var newNode = ARNode(
-  //     //    type: NodeType.fileSystemAppFolderGLTF2,
-  //     //    uri: "Chicken_01.gltf",
-  //     //    scale: Vector3(0.2, 0.2, 0.2));
-  //     bool? didAddFileSystemNode = await this.arObjectManager!.addNode(newNode);
-  //     this.fileSystemNode = (didAddFileSystemNode!) ? newNode : null;
-  //   }
-  // }
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/heart/heart.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.duck.path,
+                              onTap: () {
+                                logger.i('Duck pressed!');
 
-  Future<void> onLocalObjectShuffleButtonPressed() async {
-    if (this.localObjectNode != null) {
-      var newScale = Random().nextDouble() / 3;
-      var newTranslationAxis = Random().nextInt(3);
-      var newTranslationAmount = Random().nextDouble() / 3;
-      var newTranslation = Vector3(0, 0, 0);
-      newTranslation[newTranslationAxis] = newTranslationAmount;
-      var newRotationAxisIndex = Random().nextInt(3);
-      var newRotationAmount = Random().nextDouble();
-      var newRotationAxis = Vector3(0, 0, 0);
-      newRotationAxis[newRotationAxisIndex] = 1.0;
-
-      final newTransform = Matrix4.identity();
-
-      newTransform.setTranslation(newTranslation);
-      newTransform.rotate(newRotationAxis, newRotationAmount);
-      newTransform.scale(newScale);
-
-      this.localObjectNode!.transform = newTransform;
-    }
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/duck/Duck.gltf');
+                                // arController.onWebObjectAtOriginButtonPressed(
+                                //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'package:model_viewer_plus/model_viewer_plus.dart';
-
-// void main() => runApp(const MyApp());
-
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         appBar: AppBar(title: const Text('Model Viewer')),
-//         body: const ModelViewer(
-//           backgroundColor: Colors.blueAccent,
-//           src: 'assets/ar_models/test.glb',
-//           alt: 'A 3D model of an Water Cycle',
-//           ar: true,
-//           exposure: 0.4,
-
-//           arModes: ['scene-viewer', 'webxr', 'quick-look'],
-//           autoRotate: true,
-
-//           // iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',
-//           disableZoom: false,
-//         ),
-//       ),
-//     );
-//   }
-// }

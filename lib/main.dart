@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
           // builder: EasyLoading.init(),
         );
       },
+      //TODO: change to splash screen
       child: SplashScreen(),
     );
   }

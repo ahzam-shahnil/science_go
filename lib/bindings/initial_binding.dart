@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:science_go/apis/auth_api.dart';
 import 'package:science_go/controllers/appwrite_service.dart';
+import 'package:science_go/controllers/ar_controller.dart';
 import 'package:science_go/controllers/auth_controller.dart';
 
 import '../config/controllers.dart';
@@ -13,5 +14,8 @@ class InitialBinding extends Bindings {
 
     Get.put(AuthController(authAPI: AuthAPI(account: appwriteService.account)),
         permanent: true);
+    Get.lazyPut(
+      () => ArController(),
+    );
   }
 }

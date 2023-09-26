@@ -63,6 +63,8 @@ flutter:
     - Models/animal_cell/
     - Models/red/
     - Models/duck/
+    - Models/skeleton/
+    - Models/dino/apatosaurus/
 
   # fonts:
   #   - family: Schyler

@@ -23,20 +23,21 @@ class ExploreScreen extends StatelessWidget {
       },
     ),
     ArImageTile(
-      assetPath: Assets.images.red.path,
+      assetPath: Assets.images.skeleton.path,
       onTap: () {
-        logger.i('red pressed!');
+        logger.i('Skeleton pressed!');
         Get.back();
-        arController.onLocalObjectAtOriginButtonPressed('Models/red/red.gltf');
+        arController.onLocalObjectAtOriginButtonPressed(
+            'Models/skeleton/skeleton.gltf');
       },
     ),
     ArImageTile(
-      assetPath: Assets.images.green.path,
+      assetPath: Assets.images.apatosaurus.path,
       onTap: () {
-        logger.i('green pressed!');
+        logger.i('Dino pressed!');
         Get.back();
-        arController
-            .onLocalObjectAtOriginButtonPressed('Models/green/green.gltf');
+        arController.onLocalObjectAtOriginButtonPressed(
+            'Models/dino/apatosaurus/apatosaurus.gltf');
       },
     ),
     ArImageTile(

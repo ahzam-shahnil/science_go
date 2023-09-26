@@ -1,205 +1,198 @@
 {
-  "asset": {
-    "generator": "Microsoft GLTF Exporter 2.8.3.41",
-    "version": "2.0"
-  },
-  "accessors": [
-    {
-      "bufferView": 0,
-      "componentType": 5123,
-      "count": 44937,
-      "type": "SCALAR"
-    },
-    {
-      "bufferView": 1,
-      "componentType": 5126,
-      "count": 8242,
-      "type": "VEC3",
-      "max": [
-        7.31804084777832,
-        24.69900131225586,
-        5.983739376068115
-      ],
-      "min": [
-        -7.436141014099121,
-        0,
-        -8.342395782470703
-      ]
-    },
-    {
-      "bufferView": 2,
-      "componentType": 5126,
-      "count": 8242,
-      "type": "VEC3"
-    },
-    {
-      "bufferView": 3,
-      "componentType": 5126,
-      "count": 8242,
-      "type": "VEC4"
-    },
-    {
-      "bufferView": 4,
-      "componentType": 5126,
-      "count": 8242,
-      "type": "VEC2"
-    }
-  ],
-  "bufferViews": [
-    {
-      "buffer": 0,
-      "byteOffset": 0,
-      "byteLength": 89876,
-      "target": 34963
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 89876,
-      "byteLength": 98904,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 188780,
-      "byteLength": 98904,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 287684,
-      "byteLength": 131872,
-      "target": 34962
-    },
-    {
-      "buffer": 0,
-      "byteOffset": 419556,
-      "byteLength": 65936,
-      "target": 34962
-    }
-  ],
-  "buffers": [
-    {
-      "uri": "heart_data.bin",
-      "byteLength": 485492
-    }
-  ],
-  "images": [
-    {
-      "uri": "heart_img0.png"
-    },
-    {
-      "uri": "heart_img1.png"
-    },
-    {
-      "uri": "heart_img2.png"
-    },
-    {
-      "uri": "heart_img3.png"
-    }
-  ],
-  "materials": [
-    {
-      "pbrMetallicRoughness": {},
-      "normalTexture": {
-        "index": 2
-      },
-      "occlusionTexture": {
-        "index": 3
-      },
-      "doubleSided": true,
-      "extensions": {
-        "KHR_materials_pbrSpecularGlossiness": {
-          "diffuseTexture": {
-            "index": 0
-          },
-          "specularGlossinessTexture": {
-            "index": 1
-          }
-        }
-      }
-    }
-  ],
-  "meshes": [
-    {
-      "primitives": [
-        {
-          "attributes": {
-            "TANGENT": 3,
-            "NORMAL": 2,
-            "POSITION": 1,
-            "TEXCOORD_0": 4
-          },
-          "indices": 0,
-          "material": 0
-        }
-      ]
-    }
-  ],
-  "nodes": [
-    {
-      "children": [
-        1
-      ],
-      "scale": [
-        0.009999999776482582,
-        0.009999999776482582,
-        0.009999999776482582
-      ],
-      "name": "RootNode.0"
-    },
-    {
-      "mesh": 0,
-      "name": "human_heart.1"
-    }
-  ],
-  "samplers": [
-    {
-      "magFilter": 9729,
-      "minFilter": 9985
-    },
-    {
-      "magFilter": 9729,
-      "minFilter": 9985
-    },
-    {
-      "magFilter": 9729,
-      "minFilter": 9985
-    },
-    {
-      "magFilter": 9729,
-      "minFilter": 9985
-    }
-  ],
-  "scenes": [
-    {
-      "nodes": [
-        0
-      ]
-    }
-  ],
-  "textures": [
-    {
-      "sampler": 0,
-      "source": 0
-    },
-    {
-      "sampler": 1,
-      "source": 1
-    },
-    {
-      "sampler": 2,
-      "source": 2
-    },
-    {
-      "sampler": 3,
-      "source": 3
-    }
-  ],
-  "scene": 0,
-  "extensionsUsed": [
-    "KHR_materials_pbrSpecularGlossiness"
-  ],
-  "extensionsRequired": [
-    "KHR_materials_pbrSpecularGlossiness"
-  ]
+	"asset":{
+		"generator":"Khronos glTF Blender I/O v3.6.27",
+		"version":"2.0"
+	},
+	"scene":0,
+	"scenes":[
+		{
+			"name":"Scene",
+			"nodes":[
+				1
+			]
+		}
+	],
+	"nodes":[
+		{
+			"mesh":0,
+			"name":"human_heart.1",
+			"scale":[
+				0.6501696705818176,
+				0.6501696705818176,
+				0.6501696705818176
+			],
+			"translation":[
+				0.2217414379119873,
+				16.11076545715332,
+				-4.958774566650391
+			]
+		},
+		{
+			"children":[
+				0
+			],
+			"name":"RootNode.0",
+			"scale":[
+				0.1473594754934311,
+				0.1473594754934311,
+				0.1473594754934311
+			],
+			"translation":[
+				0.57548588514328,
+				-1.3060846328735352,
+				0.33638691902160645
+			]
+		}
+	],
+	"materials":[
+		{
+			"doubleSided":true,
+			"name":"Material_0.001",
+			"normalTexture":{
+				"index":0
+			},
+			"occlusionTexture":{
+				"index":1
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":2
+				},
+				"metallicFactor":0,
+				"metallicRoughnessTexture":{
+					"index":3
+				}
+			}
+		}
+	],
+	"meshes":[
+		{
+			"name":"Mesh_0",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":0,
+						"NORMAL":1,
+						"TEXCOORD_0":2
+					},
+					"indices":3,
+					"material":0
+				}
+			]
+		}
+	],
+	"textures":[
+		{
+			"sampler":0,
+			"source":0
+		},
+		{
+			"sampler":0,
+			"source":1
+		},
+		{
+			"sampler":0,
+			"source":2
+		},
+		{
+			"sampler":0,
+			"source":3
+		}
+	],
+	"images":[
+		{
+			"mimeType":"image/png",
+			"name":"heart_img2",
+			"uri":"heart_img2.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"heart_img3",
+			"uri":"heart_img3.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"heart_img0",
+			"uri":"heart_img0.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"heart_img1",
+			"uri":"heart_img1.png"
+		}
+	],
+	"accessors":[
+		{
+			"bufferView":0,
+			"componentType":5126,
+			"count":8242,
+			"max":[
+				7.31804084777832,
+				24.69900131225586,
+				5.983739376068115
+			],
+			"min":[
+				-7.436141014099121,
+				0,
+				-8.342395782470703
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":1,
+			"componentType":5126,
+			"count":8242,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":2,
+			"componentType":5126,
+			"count":8242,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":3,
+			"componentType":5123,
+			"count":44937,
+			"type":"SCALAR"
+		}
+	],
+	"bufferViews":[
+		{
+			"buffer":0,
+			"byteLength":98904,
+			"byteOffset":0,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":98904,
+			"byteOffset":98904,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":65936,
+			"byteOffset":197808,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":89874,
+			"byteOffset":263744,
+			"target":34963
+		}
+	],
+	"samplers":[
+		{
+			"magFilter":9729,
+			"minFilter":9987
+		}
+	],
+	"buffers":[
+		{
+			"byteLength":353620,
+			"uri":"heart.bin"
+		}
+	]
 }

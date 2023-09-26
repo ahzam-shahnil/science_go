@@ -118,12 +118,12 @@ class _ArScreenState extends State<ArScreen> {
                             ArImageTile(
                               height: 0.09.sh,
                               width: 0.18.sw,
-                              assetPath: Assets.images.red.path,
+                              assetPath: Assets.images.skeleton.path,
                               onTap: () {
-                                logger.i('red pressed!');
+                                logger.i('skeleton pressed!');
 
                                 arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/red/red.gltf');
+                                    'Models/skeleton/skeleton.gltf');
                               },
                             ),
                             SizedBox(
@@ -132,12 +132,12 @@ class _ArScreenState extends State<ArScreen> {
                             ArImageTile(
                               height: 0.09.sh,
                               width: 0.18.sw,
-                              assetPath: Assets.images.green.path,
+                              assetPath: Assets.images.apatosaurus.path,
                               onTap: () {
-                                logger.i('green pressed!');
+                                logger.i('Dino pressed!');
 
                                 arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/green/green.gltf');
+                                    'Models/dino/apatosaurus/apatosaurus.gltf');
                               },
                             ),
                             SizedBox(

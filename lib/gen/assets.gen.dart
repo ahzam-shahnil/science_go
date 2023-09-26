@@ -13,17 +13,35 @@ class $ModelsGen {
   const $ModelsGen();
 
   $ModelsAnimalCellGen get animalCell => const $ModelsAnimalCellGen();
+  $ModelsDinoGen get dino => const $ModelsDinoGen();
+  $ModelsDuckGen get duck => const $ModelsDuckGen();
   $ModelsGreenGen get green => const $ModelsGreenGen();
   $ModelsHeartGen get heart => const $ModelsHeartGen();
   $ModelsRedGen get red => const $ModelsRedGen();
+  $ModelsSkeletonGen get skeleton => const $ModelsSkeletonGen();
   $ModelsWhiteGen get white => const $ModelsWhiteGen();
 }
 
 class $ModelsAnimalCellGen {
   const $ModelsAnimalCellGen();
 
+  /// File path: Models/animal_cell/Image_0.png
+  AssetGenImage get image0 =>
+      const AssetGenImage('Models/animal_cell/Image_0.png');
+
+  /// File path: Models/animal_cell/Image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('Models/animal_cell/Image_2.png');
+
+  /// File path: Models/animal_cell/Image_3.png
+  AssetGenImage get image3 =>
+      const AssetGenImage('Models/animal_cell/Image_3.png');
+
+  /// File path: Models/animal_cell/cell.bin
+  String get cellBin => 'Models/animal_cell/cell.bin';
+
   /// File path: Models/animal_cell/cell.gltf
-  String get cell => 'Models/animal_cell/cell.gltf';
+  String get cellGltf => 'Models/animal_cell/cell.gltf';
 
   /// File path: Models/animal_cell/cell_data.bin
   String get cellData => 'Models/animal_cell/cell_data.bin';
@@ -45,8 +63,42 @@ class $ModelsAnimalCellGen {
       const AssetGenImage('Models/animal_cell/cell_img3.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [cell, cellData, cellImg0, cellImg1, cellImg2, cellImg3];
+  List<dynamic> get values => [
+        image0,
+        image2,
+        image3,
+        cellBin,
+        cellGltf,
+        cellData,
+        cellImg0,
+        cellImg1,
+        cellImg2,
+        cellImg3
+      ];
+}
+
+class $ModelsDinoGen {
+  const $ModelsDinoGen();
+
+  $ModelsDinoApatosaurusGen get apatosaurus =>
+      const $ModelsDinoApatosaurusGen();
+}
+
+class $ModelsDuckGen {
+  const $ModelsDuckGen();
+
+  /// File path: Models/duck/Duck.gltf
+  String get duck => 'Models/duck/Duck.gltf';
+
+  /// File path: Models/duck/Duck_data.bin
+  String get duckData => 'Models/duck/Duck_data.bin';
+
+  /// File path: Models/duck/Duck_img0.png
+  AssetGenImage get duckImg0 =>
+      const AssetGenImage('Models/duck/Duck_img0.png');
+
+  /// List of all assets
+  List<dynamic> get values => [duck, duckData, duckImg0];
 }
 
 class $ModelsGreenGen {
@@ -68,8 +120,11 @@ class $ModelsGreenGen {
 class $ModelsHeartGen {
   const $ModelsHeartGen();
 
+  /// File path: Models/heart/heart.bin
+  String get heartBin => 'Models/heart/heart.bin';
+
   /// File path: Models/heart/heart.gltf
-  String get heart => 'Models/heart/heart.gltf';
+  String get heartGltf => 'Models/heart/heart.gltf';
 
   /// File path: Models/heart/heart_data.bin
   String get heartData => 'Models/heart/heart_data.bin';
@@ -91,8 +146,15 @@ class $ModelsHeartGen {
       const AssetGenImage('Models/heart/heart_img3.png');
 
   /// List of all assets
-  List<dynamic> get values =>
-      [heart, heartData, heartImg0, heartImg1, heartImg2, heartImg3];
+  List<dynamic> get values => [
+        heartBin,
+        heartGltf,
+        heartData,
+        heartImg0,
+        heartImg1,
+        heartImg2,
+        heartImg3
+      ];
 }
 
 class $ModelsRedGen {
@@ -108,6 +170,32 @@ class $ModelsRedGen {
   List<String> get values => [redBin, redGltf];
 }
 
+class $ModelsSkeletonGen {
+  const $ModelsSkeletonGen();
+
+  /// File path: Models/skeleton/Image_0.png
+  AssetGenImage get image0 =>
+      const AssetGenImage('Models/skeleton/Image_0.png');
+
+  /// File path: Models/skeleton/Image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('Models/skeleton/Image_2.png');
+
+  /// File path: Models/skeleton/Image_3-Image_1.png
+  AssetGenImage get image3Image1 =>
+      const AssetGenImage('Models/skeleton/Image_3-Image_1.png');
+
+  /// File path: Models/skeleton/skeleton.bin
+  String get skeletonBin => 'Models/skeleton/skeleton.bin';
+
+  /// File path: Models/skeleton/skeleton.gltf
+  String get skeletonGltf => 'Models/skeleton/skeleton.gltf';
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [image0, image2, image3Image1, skeletonBin, skeletonGltf];
+}
+
 class $ModelsWhiteGen {
   const $ModelsWhiteGen();
 
@@ -119,6 +207,10 @@ class $ModelsWhiteGen {
 
   /// List of all assets
   List<String> get values => [whiteBin, whiteGltf];
+}
+
+class $AssetsArModelsGen {
+  const $AssetsArModelsGen();
 }
 
 class $AssetsGifGen {
@@ -139,6 +231,10 @@ class $AssetsGifGen {
 
 class $AssetsImagesGen {
   const $AssetsImagesGen();
+
+  /// File path: assets/images/apatosaurus.png
+  AssetGenImage get apatosaurus =>
+      const AssetGenImage('assets/images/apatosaurus.png');
 
   /// File path: assets/images/ar_btn.png
   AssetGenImage get arBtn => const AssetGenImage('assets/images/ar_btn.png');
@@ -163,6 +259,10 @@ class $AssetsImagesGen {
   /// File path: assets/images/red.png
   AssetGenImage get red => const AssetGenImage('assets/images/red.png');
 
+  /// File path: assets/images/skeleton.png
+  AssetGenImage get skeleton =>
+      const AssetGenImage('assets/images/skeleton.png');
+
   /// File path: assets/images/triangle.png
   AssetGenImage get triangle =>
       const AssetGenImage('assets/images/triangle.png');
@@ -171,8 +271,45 @@ class $AssetsImagesGen {
   AssetGenImage get white => const AssetGenImage('assets/images/white.png');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [arBtn, arrow, cell, duck, green, heart, red, triangle, white];
+  List<AssetGenImage> get values => [
+        apatosaurus,
+        arBtn,
+        arrow,
+        cell,
+        duck,
+        green,
+        heart,
+        red,
+        skeleton,
+        triangle,
+        white
+      ];
+}
+
+class $ModelsDinoApatosaurusGen {
+  const $ModelsDinoApatosaurusGen();
+
+  /// File path: Models/dino/apatosaurus/Image_0.png
+  AssetGenImage get image0 =>
+      const AssetGenImage('Models/dino/apatosaurus/Image_0.png');
+
+  /// File path: Models/dino/apatosaurus/Image_2.png
+  AssetGenImage get image2 =>
+      const AssetGenImage('Models/dino/apatosaurus/Image_2.png');
+
+  /// File path: Models/dino/apatosaurus/Image_3-Image_1.png
+  AssetGenImage get image3Image1 =>
+      const AssetGenImage('Models/dino/apatosaurus/Image_3-Image_1.png');
+
+  /// File path: Models/dino/apatosaurus/apatosaurus.bin
+  String get apatosaurusBin => 'Models/dino/apatosaurus/apatosaurus.bin';
+
+  /// File path: Models/dino/apatosaurus/apatosaurus.gltf
+  String get apatosaurusGltf => 'Models/dino/apatosaurus/apatosaurus.gltf';
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [image0, image2, image3Image1, apatosaurusBin, apatosaurusGltf];
 }
 
 class $AssetsImagesLogosGen {
@@ -202,6 +339,7 @@ class Assets {
   Assets._();
 
   static const $ModelsGen models = $ModelsGen();
+  static const $AssetsArModelsGen arModels = $AssetsArModelsGen();
   static const $AssetsGifGen gif = $AssetsGifGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

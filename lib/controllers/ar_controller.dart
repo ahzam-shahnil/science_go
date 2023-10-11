@@ -61,53 +61,7 @@ class ArController extends GetxController {
           // handleTaps: false,
         );
     this.arObjectManager.value?.onInitialize();
-
-    // this.arSessionManager.value?.onPlaneOrPointTap = onPlaneOrPointTapped;
-    // this.arObjectManager.value?.onNodeTap = onNodeTapped;
-    // //Download model to file system
-    // httpClient = new HttpClient();
-    // _downloadFile(
-    //     "https://github.com/ahzam-shahnil/science_go/raw/da3eb46c0fd9c7234c9c07053c16097c9de06b08/assets/ar_models/scene.glb",
-    //     "LocalDuck.glb");
-    // // Add a gltf model to the ARObjectManager
-    // var gltfModel = await arObjectManager.loadGltfModel(
-    //   'assets/gltf_model.gltf',
-    //   'assets/gltf_model.bin',
-    // );
-
-    // // Add the gltf model to the scene
-    // arObjectManager.addArObject(gltfModel);
   }
-
-  // Future<File> _downloadFile(String url, String filename) async {
-  //   var request = await httpClient!.getUrl(Uri.parse(url));
-  //   var response = await request.close();
-  //   var bytes = await consolidateHttpClientResponseBytes(response);
-  //   String dir = (await getApplicationDocumentsDirectory()).path;
-  //   File file = new File('$dir/$filename');
-  //   await file.writeAsBytes(bytes);
-  //   logger.i("Downloading finished, path: " + '$dir/$filename');
-  //   return file;
-  // }
-
-  // Future<void> _downloadAndUnpack(String url, String filename) async {
-  //   var request = await httpClient!.getUrl(Uri.parse(url));
-  //   var response = await request.close();
-  //   var bytes = await consolidateHttpClientResponseBytes(response);
-  //   String dir = (await getApplicationDocumentsDirectory()).path;
-  //   File file = new File('$dir/$filename');
-  //   await file.writeAsBytes(bytes);
-  //   print("Downloading finished, path: " + '$dir/$filename');
-
-  //   // To print all files in the directory: print(Directory(dir).listSync());
-  //   try {
-  //     await ZipFile.extractToDirectory(
-  //         zipFile: File('$dir/$filename'), destinationDir: Directory(dir));
-  //     print("Unzipping successful");
-  //   } catch (e) {
-  //     print("Unzipping failed: " + e.toString());
-  //   }
-  // }
 
   Future<void> onWebObjectAtOriginButtonPressed(String assetUri) async {
     if (this.webObjectNode.value != null) {
@@ -149,9 +103,6 @@ class ArController extends GetxController {
   }
 
   Future<void> onRemoveEverything() async {
-    /*nodes.forEach((node) {
-      this.arObjectManager.removeNode(node);
-    });*/
     anchors.forEach((anchor) {
       this.arAnchorManager.value?.removeAnchor(anchor);
     });
@@ -192,37 +143,7 @@ class ArController extends GetxController {
     } else {
       this.arSessionManager.value?.onError("Adding Anchor failed");
     }
-    /*
-    // To add a node to the tapped position without creating an anchor, use the following code (Please mind: the function onRemoveEverything has to be adapted accordingly!):
-    var newNode = ARNode(
-        type: NodeType.localGLTF2,
-        uri: "Models/Chicken_01/Chicken_01.gltf",
-        scale: Vector3(0.2, 0.2, 0.2),
-        transformation: singleHitTestResult.worldTransform);
-    bool didAddWebNode = await this.arObjectManager.addNode(newNode);
-    if (didAddWebNode) {
-      this.nodes.add(newNode);
-    }*/
   }
-  // Future<void> onLocalObjectShuffleButtonPressed() async {
-  //   var newScale = Random().nextDouble() / 3;
-  //   var newTranslationAxis = Random().nextInt(3);
-  //   var newTranslationAmount = Random().nextDouble() / 3;
-  //   var newTranslation = vector.Vector3(0, 0, 0);
-  //   newTranslation[newTranslationAxis] = newTranslationAmount;
-  //   var newRotationAxisIndex = Random().nextInt(3);
-  //   var newRotationAmount = Random().nextDouble();
-  //   var newRotationAxis = vector.Vector3(0, 0, 0);
-  //   newRotationAxis[newRotationAxisIndex] = 1.0;
-
-  //   final newTransform = Matrix4.identity();
-
-  //   newTransform.setTranslation(newTranslation);
-  //   newTransform.rotate(newRotationAxis, newRotationAmount);
-  //   newTransform.scale(newScale);
-
-  //   localObjectNode.value?.transform = newTransform;
-  // }
 
   @override
   void onClose() {

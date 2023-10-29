@@ -104,12 +104,12 @@ class _ArScreenState extends State<ArScreen> {
                             ArImageTile(
                               height: 0.09.sh,
                               width: 0.18.sw,
-                              assetPath: Assets.images.white.path,
+                              assetPath: Assets.images.plantCell.path,
                               onTap: () {
-                                logger.i('White pressed!');
+                                logger.i('Plant Cell pressed!');
 
                                 arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/white/white.gltf');
+                                    'Models/human/plant_cell/plant_cell.gltf');
                               },
                             ),
                             SizedBox(
@@ -118,9 +118,66 @@ class _ArScreenState extends State<ArScreen> {
                             ArImageTile(
                               height: 0.09.sh,
                               width: 0.18.sw,
+                              assetPath: Assets.images.brain.path,
+                              onTap: () {
+                                logger.i('Brain pressed!');
+
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/human/brain/brain.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.volcano.path,
+                              onTap: () {
+                                logger.i('Volcano pressed!');
+
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/volcano/volcano.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.cell.path,
+                              onTap: () {
+                                logger.i('Animal cell pressed!');
+
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/animal_cell/cell.gltf');
+                              },
+                            ),
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
+                              assetPath: Assets.images.heart.path,
+                              onTap: () {
+                                logger.i('Heart pressed!');
+
+                                arController.onLocalObjectAtOriginButtonPressed(
+                                    'Models/human/heart/heart.gltf');
+                              },
+                            ),
+
+                            SizedBox(
+                              width: 0.03.sw,
+                            ),
+                            ArImageTile(
+                              height: 0.09.sh,
+                              width: 0.18.sw,
                               assetPath: Assets.images.skeleton.path,
                               onTap: () {
-                                logger.i('skeleton pressed!');
+                                logger.i('Skeleton pressed!');
 
                                 arController.onLocalObjectAtOriginButtonPressed(
                                     'Models/skeleton/skeleton.gltf');
@@ -140,50 +197,79 @@ class _ArScreenState extends State<ArScreen> {
                                     'Models/dino/apatosaurus/apatosaurus.gltf');
                               },
                             ),
-                            SizedBox(
-                              width: 0.03.sw,
-                            ),
-                            ArImageTile(
-                              height: 0.09.sh,
-                              width: 0.18.sw,
-                              assetPath: Assets.images.cell.path,
-                              onTap: () {
-                                logger.i('cell pressed!');
 
-                                arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/animal_cell/cell.gltf');
-                              },
-                            ),
-                            SizedBox(
-                              width: 0.03.sw,
-                            ),
-                            ArImageTile(
-                              height: 0.09.sh,
-                              width: 0.18.sw,
-                              assetPath: Assets.images.heart.path,
-                              onTap: () {
-                                logger.i('Heart pressed!');
+                            // SizedBox(
+                            //   width: 0.03.sw,
+                            // ),
+                            // ArImageTile(
+                            //   height: 0.09.sh,
+                            //   width: 0.18.sw,
+                            //   assetPath: Assets.images.skeleton.path,
+                            //   onTap: () {
+                            //     logger.i('skeleton pressed!');
 
-                                arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/heart/heart.gltf');
-                              },
-                            ),
-                            SizedBox(
-                              width: 0.03.sw,
-                            ),
-                            ArImageTile(
-                              height: 0.09.sh,
-                              width: 0.18.sw,
-                              assetPath: Assets.images.duck.path,
-                              onTap: () {
-                                logger.i('Duck pressed!');
+                            //     arController.onLocalObjectAtOriginButtonPressed(
+                            //         'Models/skeleton/skeleton.gltf');
+                            //   },
+                            // ),
+                            // SizedBox(
+                            //   width: 0.03.sw,
+                            // ),
+                            // ArImageTile(
+                            //   height: 0.09.sh,
+                            //   width: 0.18.sw,
+                            //   assetPath: Assets.images.apatosaurus.path,
+                            //   onTap: () {
+                            //     logger.i('Dino pressed!');
 
-                                arController.onLocalObjectAtOriginButtonPressed(
-                                    'Models/duck/Duck.gltf');
-                                // arController.onWebObjectAtOriginButtonPressed(
-                                //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
-                              },
-                            ),
+                            //     arController.onLocalObjectAtOriginButtonPressed(
+                            //         'Models/dino/apatosaurus/apatosaurus.gltf');
+                            //   },
+                            // ),
+                            // SizedBox(
+                            //   width: 0.03.sw,
+                            // ),
+                            // ArImageTile(
+                            //   height: 0.09.sh,
+                            //   width: 0.18.sw,
+                            //   assetPath: Assets.images.cell.path,
+                            //   onTap: () {
+                            //     logger.i('cell pressed!');
+
+                            //     arController.onLocalObjectAtOriginButtonPressed(
+                            //         'Models/animal_cell/cell.gltf');
+                            //   },
+                            // ),
+                            // SizedBox(
+                            //   width: 0.03.sw,
+                            // ),
+                            // ArImageTile(
+                            //   height: 0.09.sh,
+                            //   width: 0.18.sw,
+                            //   assetPath: Assets.images.heart.path,
+                            //   onTap: () {
+                            //     logger.i('Heart pressed!');
+
+                            //     arController.onLocalObjectAtOriginButtonPressed(
+                            //         'Models/heart/heart.gltf');
+                            //   },
+                            // ),
+                            // SizedBox(
+                            //   width: 0.03.sw,
+                            // ),
+                            // ArImageTile(
+                            //   height: 0.09.sh,
+                            //   width: 0.18.sw,
+                            //   assetPath: Assets.images.duck.path,
+                            //   onTap: () {
+                            //     logger.i('Duck pressed!');
+
+                            //     arController.onLocalObjectAtOriginButtonPressed(
+                            //         'Models/duck/Duck.gltf');
+                            //     // arController.onWebObjectAtOriginButtonPressed(
+                            //     //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
+                            //   },
+                            // ),
                           ],
                         ),
                       ),

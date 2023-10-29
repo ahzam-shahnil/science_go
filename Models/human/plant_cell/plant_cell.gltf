@@ -1,0 +1,303 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.6.27",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        3
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "plant_cell_cross_section_a.2",
+      "translation": [
+        -0.000005200505256652832,
+        -0.000005245208740234375,
+        0.00000667572021484375
+      ]
+    },
+    {
+      "mesh": 1,
+      "name": "plant_cell_cross_section_mask.3",
+      "translation": [
+        -0.000005200505256652832,
+        -0.000005245208740234375,
+        0.00000667572021484375
+      ]
+    },
+    {
+      "children": [
+        0,
+        1
+      ],
+      "name": "plant_cell_section.1",
+      "translation": [
+        -0.000005200505256652832,
+        -0.000005245208740234375,
+        0.00000667572021484375
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "name": "RootNode.002",
+      "rotation": [
+        0.09946180135011673,
+        0.262683629989624,
+        -0.026565268635749817,
+        0.9593742489814758
+      ],
+      "scale": [
+        0.05631371587514877,
+        0.05794917792081833,
+        0.05533799156546593
+      ],
+      "translation": [
+        1.0757877826690674,
+        3.7826907634735107,
+        -2.2328100204467773
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "alphaCutoff": 0.5,
+      "alphaMode": "MASK",
+      "doubleSided": true,
+      "name": "Material_0.002",
+      "normalTexture": {
+        "index": 0
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0,
+        "metallicRoughnessTexture": {
+          "index": 3
+        }
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "Material_1",
+      "occlusionTexture": {
+        "index": 4
+      },
+      "pbrMetallicRoughness": {}
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh_0.002",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    },
+    {
+      "name": "Mesh_1",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 4,
+            "NORMAL": 5,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ],
+  "images": [
+    {
+      "name": "Image_2",
+      "uri": "plant_cell_img0.png"
+    },
+    {
+      "name": "Image_3",
+      "uri": "plant_cell_img1.png"
+    },
+    {
+      "name": "Image_0",
+      "uri": "plant_cell_img2.png"
+    },
+    {
+      "name": "Image_1",
+      "uri": "plant_cell_img3.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 64385,
+      "max": [
+        31.78399658203125,
+        18.245502471923828,
+        31.323333740234375
+      ],
+      "min": [
+        -31.78399658203125,
+        -0.05515720695257187,
+        -31.323333740234375
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 64385,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 64385,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 311577,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 4,
+      "componentType": 5126,
+      "count": 1285,
+      "max": [
+        22.901996612548828,
+        12.259994506835938,
+        20.76456069946289
+      ],
+      "min": [
+        -25.60501480102539,
+        8.396151542663574,
+        -20.72066879272461
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 5,
+      "componentType": 5126,
+      "count": 1285,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 6,
+      "componentType": 5126,
+      "count": 1285,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 7,
+      "componentType": 5123,
+      "count": 6612,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 772620,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 772620,
+      "byteOffset": 772620,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 515080,
+      "byteOffset": 1545240,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 623156,
+      "byteOffset": 2060320,
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 15420,
+      "byteOffset": 2683476,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 15420,
+      "byteOffset": 2698896,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 10280,
+      "byteOffset": 2714316,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 13224,
+      "byteOffset": 2724596,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "plant_cell_data.bin",
+      "byteLength": 2737820
+    }
+  ]
+}

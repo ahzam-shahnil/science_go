@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:science_go/config/app_constants.dart';
 import 'package:science_go/config/controllers.dart';
 import 'package:science_go/gen/assets.gen.dart';
+import 'package:science_go/views/home/periodic_screen.dart';
 
 class HomeDrawer extends StatelessWidget {
   const HomeDrawer({
@@ -25,6 +26,15 @@ class HomeDrawer extends StatelessWidget {
             padding: EdgeInsets.zero,
             child: Image.asset(Assets.images.logos.nameLogo.path),
           ),
+          ListTile(
+              leading: const Icon(Icons.science_rounded),
+              horizontalTitleGap: 8,
+              focusColor: Colors.grey,
+              title: const Text('Periodic Table'),
+              onTap: () {
+                logger.d('Periodic pressed');
+                Get.to(() => PeriodicScreen());
+              }),
           ListTile(
               leading: const Icon(Icons.feedback_rounded),
               horizontalTitleGap: 8,

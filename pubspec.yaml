@@ -18,6 +18,7 @@ dependencies:
   get: ^4.6.5
   auto_size_text: ^3.0.0
   appwrite: ^11.0.0
+  just_audio: ^0.9.35
   flutter_svg: ^2.0.7
   fluttertoast: ^8.2.2
   ar_flutter_plugin:
@@ -33,6 +34,25 @@ dev_dependencies:
     sdk: flutter
   build_runner:
   flutter_gen_runner:
+  flutter_launcher_icons: ^0.13.1
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/logos/logo_light.jpeg"
+  min_sdk_android: 24 # android min sdk min:16, default 21
+  web:
+    generate: false
+    image_path: "assets/images/logos/logo_light.jpeg"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: false
+    image_path: "assets/images/logos/logo_light.jpeg"
+    icon_size: 48 # min:48, max:256, default: 48
+  macos:
+    generate: false
+    image_path: "assets/images/logos/logo_light.jpeg"
 flutter_gen:
   integrations:
     flare_flutter: false
@@ -51,14 +71,13 @@ flutter:
     - assets/images/
     - assets/gif/
     - assets/images/logos/
-    - assets/ar_models/
-    - Models/white/
-    - Models/heart/
-    - Models/green/
+    - assets/audio/
+    - Models/human/heart/
+    - Models/human/brain/
+    - Models/human/plant_cell/
     - Models/animal_cell/
-    - Models/red/
-    - Models/duck/
     - Models/skeleton/
+    - Models/volcano/
     - Models/dino/apatosaurus/
 
   # fonts:

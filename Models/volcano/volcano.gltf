@@ -1,0 +1,179 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.6.27",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        1
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "volcano_section.1",
+      "rotation": [
+        0,
+        0.5005272030830383,
+        0,
+        0.8657208681106567
+      ],
+      "scale": [
+        8.378715515136719,
+        8.378716468811035,
+        8.378715515136719
+      ],
+      "translation": [
+        2.4434075355529785,
+        13.41026782989502,
+        5.7364501953125
+      ]
+    },
+    {
+      "children": [
+        0
+      ],
+      "name": "RootNode.0",
+      "scale": [
+        0.07324659079313278,
+        0.07324659079313278,
+        0.07324659079313278
+      ],
+      "translation": [
+        0.37149903178215027,
+        -0.5614943504333496,
+        0.012966647744178772
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material_0",
+      "occlusionTexture": {
+        "index": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 1
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 0.5
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh_0",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    }
+  ],
+  "images": [
+    {
+      "name": "Image_4",
+      "uri": "volcano_img0.png"
+    },
+    {
+      "name": "Image_3",
+      "uri": "volcano_img1.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 9052,
+      "max": [
+        1.728217601776123,
+        2.8111000061035156,
+        1.6755218505859375
+      ],
+      "min": [
+        -1.7282180786132812,
+        -0.00496673583984375,
+        -1.8576202392578125
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 9052,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 9052,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 52608,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 108624,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 108624,
+      "byteOffset": 108624,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 72416,
+      "byteOffset": 217248,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 105216,
+      "byteOffset": 289664,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "volcano_data.bin",
+      "byteLength": 394880
+    }
+  ]
+}

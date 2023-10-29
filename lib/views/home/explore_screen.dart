@@ -13,13 +13,54 @@ class ExploreScreen extends StatelessWidget {
   ExploreScreen({super.key});
   final List<Widget> itemList = [
     ArImageTile(
-      assetPath: Assets.images.white.path,
+      assetPath: Assets.images.cell.path,
       onTap: () {
-        logger.i('White pressed!');
+        logger.i('Animal cell pressed!');
         Get.back();
-
         arController
-            .onLocalObjectAtOriginButtonPressed('Models/white/white.gltf');
+            .onLocalObjectAtOriginButtonPressed('Models/animal_cell/cell.gltf');
+      },
+    ),
+    ArImageTile(
+      assetPath: Assets.images.heart.path,
+      onTap: () {
+        logger.i('Heart pressed!');
+        Get.back();
+        arController.onLocalObjectAtOriginButtonPressed(
+            'Models/human/heart/heart.gltf');
+      },
+    ),
+    ArImageTile(
+      assetPath: Assets.images.plantCell.path,
+      onTap: () {
+        logger.i('Plant Cell pressed!');
+        Get.back();
+        arController.onLocalObjectAtOriginButtonPressed(
+            'Models/human/plant_cell/plant_cell.gltf');
+        // arController.onWebObjectAtOriginButtonPressed(
+        //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
+      },
+    ),
+    ArImageTile(
+      assetPath: Assets.images.brain.path,
+      onTap: () {
+        logger.i('Brain pressed!');
+        Get.back();
+        arController.onLocalObjectAtOriginButtonPressed(
+            'Models/human/brain/brain.gltf');
+        // arController.onWebObjectAtOriginButtonPressed(
+        //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
+      },
+    ),
+    ArImageTile(
+      assetPath: Assets.images.volcano.path,
+      onTap: () {
+        logger.i('Volcano pressed!');
+        Get.back();
+        arController
+            .onLocalObjectAtOriginButtonPressed('Models/volcano/volcano.gltf');
+        // arController.onWebObjectAtOriginButtonPressed(
+        //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
       },
     ),
     ArImageTile(
@@ -38,35 +79,6 @@ class ExploreScreen extends StatelessWidget {
         Get.back();
         arController.onLocalObjectAtOriginButtonPressed(
             'Models/dino/apatosaurus/apatosaurus.gltf');
-      },
-    ),
-    ArImageTile(
-      assetPath: Assets.images.cell.path,
-      onTap: () {
-        logger.i('cell pressed!');
-        Get.back();
-        arController
-            .onLocalObjectAtOriginButtonPressed('Models/animal_cell/cell.gltf');
-      },
-    ),
-    ArImageTile(
-      assetPath: Assets.images.heart.path,
-      onTap: () {
-        logger.i('Heart pressed!');
-        Get.back();
-        arController
-            .onLocalObjectAtOriginButtonPressed('Models/heart/heart.gltf');
-      },
-    ),
-    ArImageTile(
-      assetPath: Assets.images.duck.path,
-      onTap: () {
-        logger.i('Duck pressed!');
-        Get.back();
-        arController
-            .onLocalObjectAtOriginButtonPressed('Models/duck/Duck.gltf');
-        // arController.onWebObjectAtOriginButtonPressed(
-        //     "https://github.com/KhronosGroup/glTF-Sample-Models/raw/master/2.0/Duck/glTF-Binary/Duck.glb");
       },
     ),
   ];

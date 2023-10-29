@@ -1,0 +1,195 @@
+{
+  "asset": {
+    "generator": "Khronos glTF Blender I/O v3.6.27",
+    "version": "2.0"
+  },
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Scene",
+      "nodes": [
+        1
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "mesh": 0,
+      "name": "human_brain_section.1",
+      "rotation": [
+        -0.14076921343803406,
+        0.0038028855342417955,
+        0.0252501480281353,
+        0.9897130727767944
+      ],
+      "scale": [
+        0.5195749402046204,
+        0.5195749402046204,
+        0.5195749402046204
+      ],
+      "translation": [
+        0.13466361165046692,
+        0.938941478729248,
+        -0.8235975503921509
+      ]
+    },
+    {
+      "children": [
+        0
+      ],
+      "name": "RootNode.0",
+      "scale": [
+        0.742558479309082,
+        0.742558479309082,
+        0.742558479309082
+      ]
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Material_0.002",
+      "normalTexture": {
+        "index": 0
+      },
+      "occlusionTexture": {
+        "index": 1
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 2
+        },
+        "metallicFactor": 0,
+        "metallicRoughnessTexture": {
+          "index": 3
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Mesh_0.002",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": 0,
+            "NORMAL": 1,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0
+        }
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    }
+  ],
+  "images": [
+    {
+      "name": "Image_2",
+      "uri": "brain_img0.png"
+    },
+    {
+      "name": "Image_3",
+      "uri": "brain_img1.png"
+    },
+    {
+      "name": "Image_0",
+      "uri": "brain_img2.png"
+    },
+    {
+      "name": "Image_1",
+      "uri": "brain_img3.png"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "componentType": 5126,
+      "count": 10407,
+      "max": [
+        3.1338977813720703,
+        6.243952751159668,
+        1.326175570487976
+      ],
+      "min": [
+        -3.1338977813720703,
+        0,
+        -1.326175570487976
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 10407,
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 10407,
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5123,
+      "count": 57135,
+      "type": "SCALAR"
+    }
+  ],
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 124884,
+      "byteOffset": 0,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 124884,
+      "byteOffset": 124884,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 83256,
+      "byteOffset": 249768,
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 114272,
+      "byteOffset": 333024,
+      "target": 34963
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987
+    }
+  ],
+  "buffers": [
+    {
+      "uri": "brain_data.bin",
+      "byteLength": 447296
+    }
+  ]
+}

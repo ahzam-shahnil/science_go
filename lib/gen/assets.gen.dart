@@ -14,12 +14,9 @@ class $ModelsGen {
 
   $ModelsAnimalCellGen get animalCell => const $ModelsAnimalCellGen();
   $ModelsDinoGen get dino => const $ModelsDinoGen();
-  $ModelsDuckGen get duck => const $ModelsDuckGen();
-  $ModelsGreenGen get green => const $ModelsGreenGen();
-  $ModelsHeartGen get heart => const $ModelsHeartGen();
-  $ModelsRedGen get red => const $ModelsRedGen();
+  $ModelsHumanGen get human => const $ModelsHumanGen();
   $ModelsSkeletonGen get skeleton => const $ModelsSkeletonGen();
-  $ModelsWhiteGen get white => const $ModelsWhiteGen();
+  $ModelsVolcanoGen get volcano => const $ModelsVolcanoGen();
 }
 
 class $ModelsAnimalCellGen {
@@ -84,90 +81,12 @@ class $ModelsDinoGen {
       const $ModelsDinoApatosaurusGen();
 }
 
-class $ModelsDuckGen {
-  const $ModelsDuckGen();
+class $ModelsHumanGen {
+  const $ModelsHumanGen();
 
-  /// File path: Models/duck/Duck.gltf
-  String get duck => 'Models/duck/Duck.gltf';
-
-  /// File path: Models/duck/Duck_data.bin
-  String get duckData => 'Models/duck/Duck_data.bin';
-
-  /// File path: Models/duck/Duck_img0.png
-  AssetGenImage get duckImg0 =>
-      const AssetGenImage('Models/duck/Duck_img0.png');
-
-  /// List of all assets
-  List<dynamic> get values => [duck, duckData, duckImg0];
-}
-
-class $ModelsGreenGen {
-  const $ModelsGreenGen();
-
-  /// File path: Models/green/green.bin
-  String get greenBin => 'Models/green/green.bin';
-
-  /// File path: Models/green/green.gltf
-  String get greenGltf => 'Models/green/green.gltf';
-
-  /// File path: Models/green/license.txt
-  String get license => 'Models/green/license.txt';
-
-  /// List of all assets
-  List<String> get values => [greenBin, greenGltf, license];
-}
-
-class $ModelsHeartGen {
-  const $ModelsHeartGen();
-
-  /// File path: Models/heart/heart.bin
-  String get heartBin => 'Models/heart/heart.bin';
-
-  /// File path: Models/heart/heart.gltf
-  String get heartGltf => 'Models/heart/heart.gltf';
-
-  /// File path: Models/heart/heart_data.bin
-  String get heartData => 'Models/heart/heart_data.bin';
-
-  /// File path: Models/heart/heart_img0.png
-  AssetGenImage get heartImg0 =>
-      const AssetGenImage('Models/heart/heart_img0.png');
-
-  /// File path: Models/heart/heart_img1.png
-  AssetGenImage get heartImg1 =>
-      const AssetGenImage('Models/heart/heart_img1.png');
-
-  /// File path: Models/heart/heart_img2.png
-  AssetGenImage get heartImg2 =>
-      const AssetGenImage('Models/heart/heart_img2.png');
-
-  /// File path: Models/heart/heart_img3.png
-  AssetGenImage get heartImg3 =>
-      const AssetGenImage('Models/heart/heart_img3.png');
-
-  /// List of all assets
-  List<dynamic> get values => [
-        heartBin,
-        heartGltf,
-        heartData,
-        heartImg0,
-        heartImg1,
-        heartImg2,
-        heartImg3
-      ];
-}
-
-class $ModelsRedGen {
-  const $ModelsRedGen();
-
-  /// File path: Models/red/red.bin
-  String get redBin => 'Models/red/red.bin';
-
-  /// File path: Models/red/red.gltf
-  String get redGltf => 'Models/red/red.gltf';
-
-  /// List of all assets
-  List<String> get values => [redBin, redGltf];
+  $ModelsHumanBrainGen get brain => const $ModelsHumanBrainGen();
+  $ModelsHumanHeartGen get heart => const $ModelsHumanHeartGen();
+  $ModelsHumanPlantCellGen get plantCell => const $ModelsHumanPlantCellGen();
 }
 
 class $ModelsSkeletonGen {
@@ -196,21 +115,35 @@ class $ModelsSkeletonGen {
       [image0, image2, image3Image1, skeletonBin, skeletonGltf];
 }
 
-class $ModelsWhiteGen {
-  const $ModelsWhiteGen();
+class $ModelsVolcanoGen {
+  const $ModelsVolcanoGen();
 
-  /// File path: Models/white/white.bin
-  String get whiteBin => 'Models/white/white.bin';
+  /// File path: Models/volcano/volcano.gltf
+  String get volcano => 'Models/volcano/volcano.gltf';
 
-  /// File path: Models/white/white.gltf
-  String get whiteGltf => 'Models/white/white.gltf';
+  /// File path: Models/volcano/volcano_data.bin
+  String get volcanoData => 'Models/volcano/volcano_data.bin';
+
+  /// File path: Models/volcano/volcano_img0.png
+  AssetGenImage get volcanoImg0 =>
+      const AssetGenImage('Models/volcano/volcano_img0.png');
+
+  /// File path: Models/volcano/volcano_img1.png
+  AssetGenImage get volcanoImg1 =>
+      const AssetGenImage('Models/volcano/volcano_img1.png');
 
   /// List of all assets
-  List<String> get values => [whiteBin, whiteGltf];
+  List<dynamic> get values => [volcano, volcanoData, volcanoImg0, volcanoImg1];
 }
 
-class $AssetsArModelsGen {
-  const $AssetsArModelsGen();
+class $AssetsAudioGen {
+  const $AssetsAudioGen();
+
+  /// File path: assets/audio/ambient.mp3
+  String get ambient => 'assets/audio/ambient.mp3';
+
+  /// List of all assets
+  List<String> get values => [ambient];
 }
 
 class $AssetsGifGen {
@@ -222,11 +155,8 @@ class $AssetsGifGen {
   /// File path: assets/gif/leaves.gif
   AssetGenImage get leaves => const AssetGenImage('assets/gif/leaves.gif');
 
-  /// File path: assets/gif/starry.gif
-  AssetGenImage get starry => const AssetGenImage('assets/gif/starry.gif');
-
   /// List of all assets
-  List<AssetGenImage> get values => [lake, leaves, starry];
+  List<AssetGenImage> get values => [lake, leaves];
 }
 
 class $AssetsImagesGen {
@@ -242,22 +172,24 @@ class $AssetsImagesGen {
   /// File path: assets/images/arrow.png
   AssetGenImage get arrow => const AssetGenImage('assets/images/arrow.png');
 
+  /// File path: assets/images/brain.png
+  AssetGenImage get brain => const AssetGenImage('assets/images/brain.png');
+
   /// File path: assets/images/cell.png
   AssetGenImage get cell => const AssetGenImage('assets/images/cell.png');
-
-  /// File path: assets/images/duck.png
-  AssetGenImage get duck => const AssetGenImage('assets/images/duck.png');
-
-  /// File path: assets/images/green.png
-  AssetGenImage get green => const AssetGenImage('assets/images/green.png');
 
   /// File path: assets/images/heart.png
   AssetGenImage get heart => const AssetGenImage('assets/images/heart.png');
 
   $AssetsImagesLogosGen get logos => const $AssetsImagesLogosGen();
 
-  /// File path: assets/images/red.png
-  AssetGenImage get red => const AssetGenImage('assets/images/red.png');
+  /// File path: assets/images/periodic_table.png
+  AssetGenImage get periodicTable =>
+      const AssetGenImage('assets/images/periodic_table.png');
+
+  /// File path: assets/images/plant_cell.png
+  AssetGenImage get plantCell =>
+      const AssetGenImage('assets/images/plant_cell.png');
 
   /// File path: assets/images/skeleton.png
   AssetGenImage get skeleton =>
@@ -267,22 +199,22 @@ class $AssetsImagesGen {
   AssetGenImage get triangle =>
       const AssetGenImage('assets/images/triangle.png');
 
-  /// File path: assets/images/white.png
-  AssetGenImage get white => const AssetGenImage('assets/images/white.png');
+  /// File path: assets/images/volcano.png
+  AssetGenImage get volcano => const AssetGenImage('assets/images/volcano.png');
 
   /// List of all assets
   List<AssetGenImage> get values => [
         apatosaurus,
         arBtn,
         arrow,
+        brain,
         cell,
-        duck,
-        green,
         heart,
-        red,
+        periodicTable,
+        plantCell,
         skeleton,
         triangle,
-        white
+        volcano
       ];
 }
 
@@ -312,6 +244,112 @@ class $ModelsDinoApatosaurusGen {
       [image0, image2, image3Image1, apatosaurusBin, apatosaurusGltf];
 }
 
+class $ModelsHumanBrainGen {
+  const $ModelsHumanBrainGen();
+
+  /// File path: Models/human/brain/brain.gltf
+  String get brain => 'Models/human/brain/brain.gltf';
+
+  /// File path: Models/human/brain/brain_data.bin
+  String get brainData => 'Models/human/brain/brain_data.bin';
+
+  /// File path: Models/human/brain/brain_img0.png
+  AssetGenImage get brainImg0 =>
+      const AssetGenImage('Models/human/brain/brain_img0.png');
+
+  /// File path: Models/human/brain/brain_img1.png
+  AssetGenImage get brainImg1 =>
+      const AssetGenImage('Models/human/brain/brain_img1.png');
+
+  /// File path: Models/human/brain/brain_img2.png
+  AssetGenImage get brainImg2 =>
+      const AssetGenImage('Models/human/brain/brain_img2.png');
+
+  /// File path: Models/human/brain/brain_img3.png
+  AssetGenImage get brainImg3 =>
+      const AssetGenImage('Models/human/brain/brain_img3.png');
+
+  /// List of all assets
+  List<dynamic> get values =>
+      [brain, brainData, brainImg0, brainImg1, brainImg2, brainImg3];
+}
+
+class $ModelsHumanHeartGen {
+  const $ModelsHumanHeartGen();
+
+  /// File path: Models/human/heart/heart.bin
+  String get heartBin => 'Models/human/heart/heart.bin';
+
+  /// File path: Models/human/heart/heart.gltf
+  String get heartGltf => 'Models/human/heart/heart.gltf';
+
+  /// File path: Models/human/heart/heart_data.bin
+  String get heartData => 'Models/human/heart/heart_data.bin';
+
+  /// File path: Models/human/heart/heart_img0.png
+  AssetGenImage get heartImg0 =>
+      const AssetGenImage('Models/human/heart/heart_img0.png');
+
+  /// File path: Models/human/heart/heart_img1.png
+  AssetGenImage get heartImg1 =>
+      const AssetGenImage('Models/human/heart/heart_img1.png');
+
+  /// File path: Models/human/heart/heart_img2.png
+  AssetGenImage get heartImg2 =>
+      const AssetGenImage('Models/human/heart/heart_img2.png');
+
+  /// File path: Models/human/heart/heart_img3.png
+  AssetGenImage get heartImg3 =>
+      const AssetGenImage('Models/human/heart/heart_img3.png');
+
+  /// List of all assets
+  List<dynamic> get values => [
+        heartBin,
+        heartGltf,
+        heartData,
+        heartImg0,
+        heartImg1,
+        heartImg2,
+        heartImg3
+      ];
+}
+
+class $ModelsHumanPlantCellGen {
+  const $ModelsHumanPlantCellGen();
+
+  /// File path: Models/human/plant_cell/plant_cell.gltf
+  String get plantCell => 'Models/human/plant_cell/plant_cell.gltf';
+
+  /// File path: Models/human/plant_cell/plant_cell_data.bin
+  String get plantCellData => 'Models/human/plant_cell/plant_cell_data.bin';
+
+  /// File path: Models/human/plant_cell/plant_cell_img0.png
+  AssetGenImage get plantCellImg0 =>
+      const AssetGenImage('Models/human/plant_cell/plant_cell_img0.png');
+
+  /// File path: Models/human/plant_cell/plant_cell_img1.png
+  AssetGenImage get plantCellImg1 =>
+      const AssetGenImage('Models/human/plant_cell/plant_cell_img1.png');
+
+  /// File path: Models/human/plant_cell/plant_cell_img2.png
+  AssetGenImage get plantCellImg2 =>
+      const AssetGenImage('Models/human/plant_cell/plant_cell_img2.png');
+
+  /// File path: Models/human/plant_cell/plant_cell_img3.png
+  AssetGenImage get plantCellImg3 =>
+      const AssetGenImage('Models/human/plant_cell/plant_cell_img3.png');
+
+  /// List of all assets
+  List<dynamic> get values => [
+        plantCell,
+        plantCellData,
+        plantCellImg0,
+        plantCellImg1,
+        plantCellImg2,
+        plantCellImg3
+      ];
+}
+
 class $AssetsImagesLogosGen {
   const $AssetsImagesLogosGen();
 
@@ -339,7 +377,7 @@ class Assets {
   Assets._();
 
   static const $ModelsGen models = $ModelsGen();
-  static const $AssetsArModelsGen arModels = $AssetsArModelsGen();
+  static const $AssetsAudioGen audio = $AssetsAudioGen();
   static const $AssetsGifGen gif = $AssetsGifGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }

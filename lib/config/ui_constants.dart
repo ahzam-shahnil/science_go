@@ -8,6 +8,7 @@ class UIConstants {
       iconTheme: const IconThemeData(color: AppColors.greenColor),
       title: null,
       centerTitle: true,
+      // automaticallyImplyLeading: true,
       backgroundColor: Colors.transparent,
     );
   }
